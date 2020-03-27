@@ -9,7 +9,10 @@ module.exports = withImages(
         ? process.env.LOCALE_SUBPATHS
         : 'none',
     },
-    assetPrefix: isProd ? '/mobile-apps' : '',
+    exportPathMap: () => ({
+      '/': { page: '/' },
+    }),
+    assetPrefix: isProd ? '/mobile-apps/' : '',
     webpack: (config, options) => {
       cssModules: true,
       //      config.module.rules.push({
