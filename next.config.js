@@ -18,13 +18,20 @@ module.exports = withImages(
     webpack: (config, options) => {
       cssModules: true,
       config.module.rules.push({
-        // enforce: 'pre',
-        // test: /\.js?$/,
-        // exclude: [/node_modules/],
-        loader: require.resolve('url-loader'),
-        options: {
-          outputPath: `${isProd ? '/mobile-apps/' : ''}static/images/`,
-        }
+        test: /\.(jpe?g|png|svg|gif|ico|webp)$/,
+        exclude: config.exclude,
+        use: [
+          {
+            loader: require.resolve("url-loader"),
+            options: {
+              limit: config.inlineImageLimit,
+              fallback: require.resolve("file-loader"),
+              publicPath: `${config.assetPrefix}/_next/static/images/`,
+              outputPath: `${isProd ? "/mobile-apps/" : ""}static/images/`,
+              name: "[name]-[hash].[ext]"
+            }
+          }
+        ]
       });
       config.node = {
         fs: 'empty'
