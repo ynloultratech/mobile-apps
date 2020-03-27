@@ -21,7 +21,7 @@ module.exports = withImages(
         // enforce: 'pre',
         // test: /\.js?$/,
         // exclude: [/node_modules/],
-        // loader: 'eslint-loader',
+        loader: 'url-loader',
         options: {
           outputPath: `${isProd ? '/mobile-apps/' : ''}static/images/`,
         }
