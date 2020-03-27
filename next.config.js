@@ -1,6 +1,5 @@
 const withCSS = require('@zeit/next-css');
 const withImages = require('next-images');
-const webpack = require('webpack');
 const isProd = (process.env.NODE_ENV || 'production') === 'production';
 const assetPrefix = isProd ? '/mobile-apps' : '';
 
@@ -15,26 +14,21 @@ module.exports = withImages(
       '/': { page: '/' },
       '/contact': { page: '/contact' },
     }),
-    assetPrefix: assetPrefix,
+    assetPrefix,
     webpack: (config, options) => {
       cssModules: true,
-      //      config.module.rules.push({
-      //          enforce: 'pre',
-      //          test: /\.js?$/,
-      //          exclude: [/node_modules/],
-      //          loader: 'eslint-loader',
-      //          options: {
-      //            quiet: true,
-      //          }
-      //      });
-      config.plugins.push(
-        new webpack.DefinePlugin({
-          'process.env.ASSET_PREFIX': JSON.stringify(assetPrefix),
-        }),
-      );
+      config.module.rules.push({
+        // enforce: 'pre',
+        // test: /\.js?$/,
+        // exclude: [/node_modules/],
+        // loader: 'eslint-loader',
+        options: {
+          outputPath: `${isProd ? '/mobile-apps/' : ''}static/images/`,
+        }
+      });
       config.node = {
         fs: 'empty'
-      }
+      };
       return config;
     },
   })
