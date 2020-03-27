@@ -12,7 +12,7 @@ module.exports = withImages(
     exportPathMap: () => ({
       '/': { page: '/' },
     }),
-    assetPrefix: isProd ? '/mobile-apps/' : '',
+    assetPrefix: isProd ? '/mobile-apps' : '',
     webpack: (config, options) => {
       cssModules: true,
       //      config.module.rules.push({
