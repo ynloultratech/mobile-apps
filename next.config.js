@@ -21,7 +21,7 @@ module.exports = withImages(
         // enforce: 'pre',
         // test: /\.js?$/,
         // exclude: [/node_modules/],
-        loader: 'url-loader',
+        loader: require.resolve('url-loader'),
         options: {
           outputPath: `${isProd ? '/mobile-apps/' : ''}static/images/`,
         }
