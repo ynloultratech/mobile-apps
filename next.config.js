@@ -1,5 +1,6 @@
-const withCSS = require('@zeit/next-css')
+const withCSS = require('@zeit/next-css');
 const withImages = require('next-images');
+const isProd = (process.env.NODE_ENV || 'production') === 'production';
 
 module.exports = withImages(
   withCSS({
@@ -8,6 +9,7 @@ module.exports = withImages(
         ? process.env.LOCALE_SUBPATHS
         : 'none',
     },
+    assetPrefix: isProd ? '/mobile-apps' : '',
     webpack: (config, options) => {
       cssModules: true,
       //      config.module.rules.push({
