@@ -65,7 +65,7 @@ function Feature(props) {
       rel: 0,
       showinfo: 1,
       mute: 0,
-      origin: 'http://localhost:3007'
+      origin: 'https://site.paynup.com'
     }
   };
 
