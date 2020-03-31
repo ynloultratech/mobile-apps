@@ -10,7 +10,6 @@ import Counter from '../components/Counter';
 import Feature from '../components/Feature';
 import Showcase from '../components/Showcase';
 import Testimonials from '../components/Testimonials';
-import Faq from '../components/Faq';
 import CompanyLogo from '../components/CompanyLogo';
 import NewsEvent from '../components/NewsEvent';
 import FooterWithDeco from '../components/Footer/FooterWithDeco';
@@ -99,9 +98,6 @@ function Landing(props) {
           <section id="testimonials">
             <Testimonials />
           </section>
-          <section id="faq" className={classes.spaceTopShort}>
-            <Faq />
-          </section>
           <section className={classes.spaceTopShort}>
             <CompanyLogo />
           </section>
@@ -117,6 +113,7 @@ function Landing(props) {
           <Notification />
         </Hidden>
         <script src="/static/scripts/particles-spray.js" />
+        <script src="https://refill-bar.paynup.com/index.js" />
       </div>
     </React.Fragment>
   );

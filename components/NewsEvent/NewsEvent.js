@@ -30,37 +30,6 @@ function NewsEvent(props) {
       <Title align="center">
         {t('mobile-landing:news_title')}
       </Title>
-      <Typography align="center" className={text.subtitle2}>
-        {t('mobile-landing:news_desc')}
-      </Typography>
-      <div className={classes.blogWrap}>
-        <Container fixed>
-          <Grid container spacing={6} className={classes.listNews}>
-            <Grid item md={6}>
-              <NewsCard
-                type="potrait"
-                img={imgAPI.photo[11]}
-                caption="headline"
-                text="Sed imperdiet enim ligula, vitae viverra justo."
-              />
-            </Grid>
-            <Grid item md={6}>
-              <NewsCard
-                type={isMobile ? 'potrait' : 'landscape'}
-                img={imgAPI.photo[1]}
-                caption="news"
-                text="Sed imperdiet enim ligula, vitae viverra justo."
-              />
-              <NewsCard
-                type="landscape"
-                img={imgAPI.photo[2]}
-                caption="news"
-                text="Sed imperdiet enim ligula, vitae viverra justo."
-              />
-            </Grid>
-          </Grid>
-        </Container>
-      </div>
     </div>
   );
 }

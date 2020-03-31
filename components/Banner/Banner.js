@@ -41,6 +41,12 @@ function Banner(props) {
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
+    window.PaynUpRefillBar({
+      element: document.getElementById('refill-bar'),
+      store: 21232,
+      primaryColor: '#3f51b5',
+      secondaryColor: '#f50057',
+    });
   });
 
   return (
@@ -67,6 +73,7 @@ function Banner(props) {
                   {t('mobile-landing:banner_titlestrong')}
                 </strong>
               </Typography>
+              <div id="refill-bar" className={classes.refill_bar} />
               <Typography variant="h5" className={text.subtitle}>
                 {t('mobile-landing:banner_desc')}
               </Typography>

@@ -13,13 +13,12 @@ const useStyles = makeStyles(theme => ({
     margin: theme.spacing(5, 0, 0),
     justifyContent: 'center',
     position: 'relative',
-    overflow: 'auto',
     zIndex: 23,
     [theme.breakpoints.down('xs')]: {
       justifyContent: 'flex-start',
     },
     '& img': {
-      height: 64,
+      height: 128,
       margin: theme.spacing(4),
       filter: 'grayscale(1) contrast(0.5) brightness(1.5)',
       opacity: theme.palette.type === 'dark' ? 0.5 : 1,

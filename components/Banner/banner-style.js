@@ -183,6 +183,11 @@ const bannerStyles = makeStyles(theme => ({
   },
   hide: {
     visibility: 'hidden'
+  },
+  refill_bar: {
+    '& h5': {
+      margin: 0,
+    }
   }
 }));
 
