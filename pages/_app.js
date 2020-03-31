@@ -29,7 +29,7 @@ class MyApp extends App {
       ...appTheme('joker', themeType),
       direction: i18n.language === 'ar' ? 'rtl' : 'ltr'
     }
-  }
+  };
 
   componentDidMount() {
     // Set layout direction
@@ -62,7 +62,7 @@ class MyApp extends App {
         direction: theme.direction,
       }
     });
-  }
+  };
 
   toggleDirection = dir => {
     const { theme } = this.state;
@@ -76,7 +76,7 @@ class MyApp extends App {
         }
       }
     });
-  }
+  };
 
   render() {
     const { theme, loading } = this.state;

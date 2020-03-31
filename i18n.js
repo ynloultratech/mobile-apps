@@ -1,8 +1,9 @@
 const NextI18Next = require('next-i18next').default;
 
-module.exports = new NextI18Next({
+const languages = ['de', 'ar', 'id', 'zh', 'pt'];
+const NextI18NextInstance = new NextI18Next({
   defaultLanguage: 'en',
-  otherLanguages: ['de', 'ar', 'id', 'zh', 'pt'],
+  otherLanguages: languages,
   fallbackLng: 'en',
   localeSubpaths: {
     en: 'en',
@@ -13,3 +14,6 @@ module.exports = new NextI18Next({
     zh: 'zh',
   },
 });
+NextI18NextInstance.i18n.languages = languages;
+
+module.exports = NextI18NextInstance;
