@@ -16,7 +16,7 @@
 	"scripts": {
 		"dev": "node index.js",
 		"build": "next build",
-		"export": "next export",
+		"deploy": "next build && next export",
 		"start": "NODE_ENV=production node index.js"
 	},
 	"dependencies": {
