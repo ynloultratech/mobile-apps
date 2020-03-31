@@ -37,7 +37,7 @@ const HeadComponent = () => (
     <meta name="theme-color" content={theme.joker.palette.primary.main} />
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700" rel="stylesheet" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
-    <link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" />
+    <link href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" />
     {/*  Facebook */}
     <meta property="author" content="luxi" />
     <meta property="og:site_name" content="luxi.ux-maestro.com" />
