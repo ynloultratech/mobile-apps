@@ -77,7 +77,11 @@ const featureStyles = makeStyles(theme => ({
       top: 20,
     }
   },
-  button: {},
+  btn: {
+    marginTop: theme.spacing(1),
+    color: theme.palette.type === 'dark' ? theme.palette.primary.light : theme.palette.primary.main,
+    textTransform: 'none'
+  },
   item: {
     position: 'relative',
     paddingBottom: theme.spacing(5),

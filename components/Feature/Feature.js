@@ -23,6 +23,7 @@ import ParallaxMedium from '../Parallax/Medium';
 import TitleSecondary from '../Title/TitleSecondary';
 import Title from '../Title';
 import useStyles from './feature-style';
+import Button from '@material-ui/core/Button';
 
 const Transition = React.forwardRef(function Transition(props, ref) { // eslint-disable-line
   return <Zoom ref={ref} {...props} />;
@@ -118,6 +119,7 @@ function Feature(props) {
                   {t('mobile-landing:feature_desc1')}
                 </Typography>
               </div>
+              <Button size="small" className={classes.btn}>Retailers</Button>
             </Grid>
           </Grid>
         </div>
@@ -134,6 +136,7 @@ function Feature(props) {
                     {t('mobile-landing:feature_desc2')}
                   </Typography>
                 </div>
+                <Button size="small" className={classes.btn}>Distributors</Button>
               </Grid>
               <Grid item md={6} xs={12}>
                 <div className={classes.illustrationRight}>

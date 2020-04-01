@@ -19,10 +19,6 @@ const logos = [
   'https://static.wixstatic.com/media/524475_6bcfbbf182614375b04650de206a2a78~mv2.png/v1/fill/w_133,h_130,al_c,q_85,usm_0.66_1.00_0.01/beeline.webp',
   'https://static.wixstatic.com/media/524475_0dd37b1b92df4d57bacab637dc9df0f3~mv2.png/v1/fill/w_142,h_130,al_c,q_85,usm_0.66_1.00_0.01/carrefour.webp',
   'https://static.wixstatic.com/media/524475_4d2fa5848a6841d59d33d5b48d4383e0~mv2.png/v1/fill/w_133,h_130,al_c,q_85,usm_0.66_1.00_0.01/cubacell.webp',
-  'https://static.wixstatic.com/media/524475_72f99a4bbbdf45e280e3d909e0b0f90f~mv2.png/v1/fill/w_152,h_151,al_c,q_85,usm_0.66_1.00_0.01/dialog.webp',
-  'https://static.wixstatic.com/media/524475_de64e8902272447c86334a74bbb4fbf0~mv2.png/v1/fill/w_133,h_130,al_c,q_85,usm_0.66_1.00_0.01/digicel.webp',
-  'https://static.wixstatic.com/media/524475_2499bc2152874e3084695f6e25088d3f~mv2.png/v1/fill/w_142,h_130,al_c,q_85,usm_0.66_1.00_0.01/gtt.webp',
-  'https://static.wixstatic.com/media/524475_207b86ca3ee846aa9dd1b13b2a1783d1~mv2.png/v1/fill/w_133,h_130,al_c,q_85,usm_0.66_1.00_0.01/oi.webp',
 ];
 
 function CompanyLogo(props) {
