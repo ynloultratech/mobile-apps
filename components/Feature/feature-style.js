@@ -82,6 +82,11 @@ const featureStyles = makeStyles(theme => ({
     color: theme.palette.type === 'dark' ? theme.palette.primary.light : theme.palette.primary.main,
     textTransform: 'none'
   },
+  btnLink: {
+    marginBottom: theme.spacing(-10),
+    color: theme.palette.primary.light,
+    textTransform: 'none'
+  },
   item: {
     position: 'relative',
     paddingBottom: theme.spacing(5),
@@ -120,23 +125,25 @@ const featureStyles = makeStyles(theme => ({
     textAlign: 'center',
     width: '100%',
     position: 'relative',
+    margin: theme.spacing(0, 2, 0),
     height: 300,
-    [theme.breakpoints.down('xs')]: {
-      height: 180
+    [theme.breakpoints.down('sm')]: {
+      margin: theme.spacing(3, 0, 0),
     },
     '& img': {
       position: 'absolute',
       left: 0,
       width: '100%',
-      minHeight: '100%'
+      minHeight: '100%',
+      padding: theme.spacing(5.5, 0, 0),
     },
     '& h6': {
-      fontWeight: theme.typography.fontWeightBold,
       textAlign: 'center',
       position: 'relative',
-      margin: theme.spacing(8, 0, 4),
+      background: 'white',
+      margin: theme.spacing(1, 0, 0),
       [theme.breakpoints.down('xs')]: {
-        margin: theme.spacing(4, 0)
+        margin: theme.spacing(1, 0)
       }
     },
     '& $button': {
@@ -154,7 +161,7 @@ const featureStyles = makeStyles(theme => ({
     position: 'absolute',
     '& img': {
       width: '90%',
-      display: 'block'
+      display: 'block',
     }
   },
   tabContent: {
@@ -194,10 +201,18 @@ const featureStyles = makeStyles(theme => ({
   },
   illustrationCenter: {
     position: 'relative',
+    display: 'flex',
+    flexWrap: 'nowrap',
     marginTop: theme.spacing(10),
     [theme.breakpoints.down('xs')]: {
       marginTop: theme.spacing(3)
+    },
+    [theme.breakpoints.down('sm')]: {
+      flexWrap: 'wrap',
     }
+  },
+  itemCenter: {
+    textAlign: 'center',
   },
   videoPopup: {
     width: 690,

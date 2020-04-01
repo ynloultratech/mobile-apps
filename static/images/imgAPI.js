@@ -50,7 +50,9 @@ const imgAPI = {
     '/static/images/mobile/widget_screen5.png',
     '/static/images/mobile/widget_screen6.png',
     '/static/images/mobile/widget_screen7.png',
-    ''
+    'https://static.wixstatic.com/media/524475_f4c490847b9b4577aef77670bf8615a8~mv2.png/v1/fill/w_325,h_260,al_c,q_85,usm_0.66_1.00_0.01/btns-examples%402x-1.webp',
+    'https://static.wixstatic.com/media/524475_040293aa4fcc472d9d310516828ecedd~mv2.png/v1/fill/w_305,h_260,al_c,q_85,usm_0.66_1.00_0.01/customize%402x.webp',
+    'https://static.wixstatic.com/media/524475_bf021c48f0ec4dcb8a894ba06bcb16f1~mv2.png/v1/fill/w_321,h_260,al_c,q_85,usm_0.66_1.00_0.01/sample-site-code%402x.webp',
   ]
 };
 

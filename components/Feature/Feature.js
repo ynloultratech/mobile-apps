@@ -156,24 +156,34 @@ function Feature(props) {
             <Typography align="center" component="p" className={text.subtitle2}>
               {t('mobile-landing:feature_desc3')}
             </Typography>
-            <Container maxWidth="sm">
+            <Container>
               <Grid container>
-                <Grid item md={12} xs={12}>
+                <Grid item md={12} xs={12} className={classes.itemCenter}>
                   <div className={classes.illustrationCenter}>
                     <svg className={classes.decoPrimaryBig}>
                       <use xlinkHref="/static/images/mobile/deco-feature.svg#main" />
                     </svg>
                     <ParallaxMedium />
                     <Paper className={classes.video}>
-                      <img src={imgAPI.mobile[6]} alt="screen" />
+                      <img src={imgAPI.mobile[21]} alt="screen1" />
                       <Typography variant="h6">
                         {t('mobile-landing:feature_watch')}
                       </Typography>
-                      <IconButton className={classes.button} onClick={handleClickOpen}>
-                        <i className="ion-play" />
-                      </IconButton>
+                    </Paper>
+                    <Paper className={classes.video}>
+                      <img src={imgAPI.mobile[22]} alt="screen2" />
+                      <Typography variant="h6">
+                        {t('mobile-landing:feature_watch2')}
+                      </Typography>
+                    </Paper>
+                    <Paper className={classes.video}>
+                      <img src={imgAPI.mobile[23]} alt="screen3" />
+                      <Typography variant="h6">
+                        {t('mobile-landing:feature_watch3')}
+                      </Typography>
                     </Paper>
                   </div>
+                  <Button size="small" className={classes.btnLink}>Add Our Bar Now</Button>
                 </Grid>
               </Grid>
             </Container>
