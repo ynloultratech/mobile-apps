@@ -24,9 +24,6 @@ function NewsEvent(props) {
   return (
     <div className={classes.root}>
       <div className={classes.decoBgTop} />
-      <div className={classes.parallaxEvent}>
-        <ParallaxLarge />
-      </div>
       <Title align="center">
         {t('mobile-landing:news_title')}
       </Title>
