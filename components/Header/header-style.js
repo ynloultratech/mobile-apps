@@ -65,10 +65,8 @@ const headerStyles = makeStyles(theme => ({
         },
         '& img': {
           marginBottom: 0,
-          [theme.breakpoints.up('sm')]: {
-            height: 48,
-            width: 48
-          }
+          width: 48,
+          height: 48,
         }
       },
       '& nav': {
@@ -123,9 +121,9 @@ const headerStyles = makeStyles(theme => ({
       margin: '0 auto',
       transition: 'all 0.3s ease-out',
       marginBottom: theme.spacing(),
-      width: 48,
-      [theme.breakpoints.up('sm')]: {
-        width: 190,
+      width: 190,
+      [theme.breakpoints.down('xs')]: {
+        width: 150,
       }
     }
   },
