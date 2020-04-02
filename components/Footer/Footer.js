@@ -18,7 +18,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Link from '@material-ui/core/Link';
 import IconButton from '@material-ui/core/IconButton';
 import brand from '~/static/text/brand';
-import logo from '~/static/images/mobile-logo.png';
+import logo from '~/static/images/mobile-logo-gray.png';
 import { i18n } from '~/i18n';
 import useStyles from './footer-style';
 import AnchorLink from 'react-anchor-link-smooth-scroll';
@@ -88,9 +88,6 @@ function Footer(props) {
         <Grid item xs={12} md={3}>
           <div className={classes.logo}>
             <img src={logo} alt="logo" />
-            <Typography variant="h6" color="textPrimary">
-              {brand.mobile.projectName}
-            </Typography>
           </div>
           <Copyright />
         </Grid>

@@ -14,6 +14,7 @@ import Scrollspy from 'react-scrollspy';
 import Settings from './Settings';
 import MobileMenu from './MobileMenu';
 import logo from '~/static/images/mobile-logo.png';
+import logoLarge from '~/static/images/mobile-logo-large.png';
 import brand from '~/static/text/brand';
 import { withTranslation } from '~/i18n';
 import linkRouter from '~/static/text/link';
@@ -101,14 +102,12 @@ function Header(props) {
                 {invert ? (
                   <Link href={linkRouter.mobile.home}>
                     <a>
-                      <img src={logo} alt="logo" />
-                      {!isMobile && brand.mobile.projectName}
+                      <img src={fixed ? logo : logoLarge} alt="logo" />
                     </a>
                   </Link>
                 ) : (
                   <AnchorLink href="#home">
-                    <img src={logo} alt="logo" />
-                    {!isMobile && brand.mobile.projectName}
+                    <img src={fixed ? logo : logoLarge} alt="logo" />
                   </AnchorLink>
                 )}
               </div>
