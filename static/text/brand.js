@@ -1,13 +1,13 @@
 module.exports = {
   mobile: {
-    name: 'Mobile Apps',
-    desc: 'Luxiren Mobile Apps - React Single Landing Page Template',
-    prefix: 'luxiren',
-    footerText: 'Luxiren Theme 2019',
-    logoText: 'Luxiren Mobile',
-    projectName: 'Mobile',
-    url: 'luxireact.ux-maestro.com/mobile',
+    name: 'Paynup Site',
+    desc: 'Paynup Site Page',
+    prefix: 'paynup',
+    footerText: '2020 by YNLO Ultratech INC.',
+    logoText: 'Paynup Site',
+    projectName: 'Paynup',
+    url: 'paynup.com',
     img: '/static/images/mobile-logo.png',
-    notifMsg: 'Donec sit amet nulla sed arcu pulvinar ultricies commodo id ligula.'
+    notifMsg: 'We use cookies to offer you a better experience, serve you more relevant ads, and analyze site traffic. This website is based in the United States and by continuing to use this website or by using our services, you consent to the use of cookies in accordance with our '
   }
 };

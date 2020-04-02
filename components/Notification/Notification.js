@@ -34,7 +34,14 @@ function Notification(props) {
       onClose={handleClose}
     >
       <SnackbarContent
-        message={<Typography id="message-id">{msg.mobile.notifMsg}</Typography>}
+        message={(
+          <Typography id="message-id">
+            {msg.mobile.notifMsg}
+            <a href="https://paynup.com/policies/privacy" className={classes.privacy} target="_blank" rel="noopener noreferrer">
+              Privacy Policy.
+            </a>
+          </Typography>
+        )}
         classes={{
           action: classes.action
         }}

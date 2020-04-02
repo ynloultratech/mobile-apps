@@ -97,6 +97,20 @@ module.exports = {
       }
     }
   },
+  paynup: {
+    palette: {
+      primary: {
+        light: '#f7bcbe',
+        main: '#ED3237',
+        dark: '#870f13'
+      },
+      secondary: {
+        light: '#e8c5c6',
+        main: '#8a243e',
+        dark: '#6e1d39'
+      }
+    }
+  },
   violeta: {
     palette: {
       primary: {

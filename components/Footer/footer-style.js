@@ -112,7 +112,7 @@ const footerStyles = makeStyles(theme => ({
     [theme.breakpoints.down('sm')]: {
       marginTop: theme.spacing(4)
     },
-    '& button': {
+    '& a': {
       margin: theme.spacing(),
       color: theme.palette.primary.dark,
       background: theme.palette.secondary.main,

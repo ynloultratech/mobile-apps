@@ -163,7 +163,6 @@ function Feature(props) {
                     <svg className={classes.decoPrimaryBig}>
                       <use xlinkHref="/static/images/mobile/deco-feature.svg#main" />
                     </svg>
-                    <ParallaxMedium />
                     <Paper className={classes.video}>
                       <img src={imgAPI.mobile[21]} alt="screen1" />
                       <Typography variant="h6">

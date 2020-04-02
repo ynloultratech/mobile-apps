@@ -44,8 +44,8 @@ function Banner(props) {
     window.PaynUpRefillBar({
       element: document.getElementById('refill-bar'),
       store: 21232,
-      primaryColor: '#3f51b5',
-      secondaryColor: '#f50057',
+      primaryColor: '#ED3237',
+      secondaryColor: '#eda54a',
     });
   });
 

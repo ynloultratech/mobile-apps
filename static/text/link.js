@@ -1,7 +1,6 @@
 const link = {
   mobile: {
-    home: '/',
-    contact: '/contact'
+    home: '/'
   }
 };
 

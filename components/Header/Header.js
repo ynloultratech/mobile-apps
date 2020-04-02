@@ -13,7 +13,7 @@ import AnchorLink from 'react-anchor-link-smooth-scroll';
 import Scrollspy from 'react-scrollspy';
 import Settings from './Settings';
 import MobileMenu from './MobileMenu';
-import logo from '~/static/images/mobile-logo.svg';
+import logo from '~/static/images/mobile-logo.png';
 import brand from '~/static/text/brand';
 import { withTranslation } from '~/i18n';
 import linkRouter from '~/static/text/link';
@@ -132,11 +132,6 @@ function Header(props) {
                       )}
                     </li>
                   ))}
-                  <li>
-                    <Button href={linkRouter.mobile.contact}>
-                      {t('mobile-landing:header_contact')}
-                    </Button>
-                  </li>
                 </Scrollspy>
               )}
             </nav>
@@ -144,17 +139,14 @@ function Header(props) {
               {!invert && (
                 <Hidden xsDown>
                   <Fragment>
-                    <IconButton aria-label="facebook" className={classes.socialBtn} size="small">
+                    <IconButton aria-label="facebook" className={classes.socialBtn} size="small" component={AnchorLink} href="https://www.facebook.com/paynup/">
                       <i className="ion-social-twitter" />
                     </IconButton>
-                    <IconButton aria-label="twitter" className={classes.socialBtn} size="small">
+                    <IconButton aria-label="twitter" className={classes.socialBtn} size="small" component={AnchorLink} href="https://twitter.com/paynup">
                       <i className="ion-social-facebook" />
                     </IconButton>
-                    <IconButton aria-label="instagram" className={classes.socialBtn} size="small">
+                    <IconButton aria-label="instagram" className={classes.socialBtn} size="small" component={AnchorLink} href="https://www.instagram.com/paynup/">
                       <i className="ion-social-instagram" />
-                    </IconButton>
-                    <IconButton aria-label="linkedin" className={classes.socialBtn} size="small">
-                      <i className="ion-social-linkedin" />
                     </IconButton>
                   </Fragment>
                 </Hidden>

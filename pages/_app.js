@@ -26,7 +26,7 @@ class MyApp extends App {
   state = {
     loading: false,
     theme: {
-      ...appTheme('joker', themeType),
+      ...appTheme('paynup', themeType),
       direction: i18n.language === 'ar' ? 'rtl' : 'ltr'
     }
   };

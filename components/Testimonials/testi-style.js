@@ -7,7 +7,7 @@ const testiStyles = makeStyles(theme => ({
   root: {
     background: theme.palette.type === 'dark' ? darken(theme.palette.primary.light, 0.6) : lighten(theme.palette.primary.light, 0.8),
     minHeight: 400,
-    paddingTop: theme.spacing(20)
+    paddingTop: theme.spacing(10)
   },
   carouselWrap: {
     position: 'relative',

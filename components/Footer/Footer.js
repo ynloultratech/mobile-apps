@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
@@ -18,9 +18,10 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Link from '@material-ui/core/Link';
 import IconButton from '@material-ui/core/IconButton';
 import brand from '~/static/text/brand';
-import logo from '~/static/images/mobile-logo.svg';
+import logo from '~/static/images/mobile-logo.png';
 import { i18n } from '~/i18n';
 import useStyles from './footer-style';
+import AnchorLink from 'react-anchor-link-smooth-scroll';
 
 function Copyright() {
   return (
@@ -93,76 +94,17 @@ function Footer(props) {
           </div>
           <Copyright />
         </Grid>
-        <Grid item xs={12} md={6}>
-          <Grid container spacing={4} justify="space-evenly">
-            {footers.map(footer => (
-              <Grid item xs={12} md={3} key={footer.title} className={clsx(classes.siteMapItem, invert && classes.invert)}>
-                {isDesktop && (
-                  <div>
-                    <Typography variant="h6" className={classes.title} color="textPrimary" gutterBottom>
-                      {footer.title}
-                    </Typography>
-                    <ul>
-                      {footer.description.map((item, index) => (
-                        <li key={item}>
-                          <Link href={footer.link[index]} variant="subtitle1" color="textSecondary">
-                            {item}
-                          </Link>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
-                {isMobile && (
-                  <ExpansionPanel
-                    square
-                    className={invert ? classes.invert : ''}
-                    classes={{
-                      root: classes.accordionRoot,
-                    }}
-                  >
-                    <ExpansionPanelSummary
-                      expandIcon={<ExpandMoreIcon className={classes.accordionIcon} />}
-                      aria-controls="panel1a-content"
-                      id="panel1a-header"
-                      classes={{
-                        content: classes.accordionContent,
-                      }}
-                    >
-                      <strong>
-                        {footer.title}
-                      </strong>
-                    </ExpansionPanelSummary>
-                    <ExpansionPanelDetails>
-                      <ul>
-                        {footer.description.map((item, index) => (
-                          <li key={item}>
-                            <Link href={footer.link[index]} variant="subtitle1" color="textSecondary">
-                              {item}
-                            </Link>
-                          </li>
-                        ))}
-                      </ul>
-                    </ExpansionPanelDetails>
-                  </ExpansionPanel>
-                )}
-              </Grid>
-            ))}
-          </Grid>
-        </Grid>
+        <Grid item xs={12} md={6} />
         <Grid item xs={12} md={3}>
           <div className={classes.socmed}>
-            <IconButton aria-label="FB" className={classes.margin} size="small">
+            <IconButton aria-label="FB" className={classes.margin} size="small" component={AnchorLink} href="https://www.facebook.com/paynup/">
               <i className="ion-social-twitter" />
             </IconButton>
-            <IconButton aria-label="TW" className={classes.margin} size="small">
+            <IconButton aria-label="TW" className={classes.margin} size="small" component={AnchorLink} href="https://twitter.com/paynup">
               <i className="ion-social-facebook" />
             </IconButton>
-            <IconButton aria-label="IG" className={classes.margin} size="small">
+            <IconButton aria-label="IG" className={classes.margin} size="small" component={AnchorLink} href="https://www.instagram.com/paynup/">
               <i className="ion-social-instagram" />
-            </IconButton>
-            <IconButton aria-label="LI" className={classes.margin} size="small">
-              <i className="ion-social-linkedin" />
             </IconButton>
           </div>
           <Select

@@ -36,6 +36,9 @@ const notificationStyles = makeStyles(theme => ({
       padding: 0,
       margin: 0
     }
+  },
+  privacy: {
+    color: theme.palette.common.white,
   }
 }));
 
