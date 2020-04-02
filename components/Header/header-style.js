@@ -123,11 +123,9 @@ const headerStyles = makeStyles(theme => ({
       margin: '0 auto',
       transition: 'all 0.3s ease-out',
       marginBottom: theme.spacing(),
-      height: 32,
-      width: 119,
+      width: 160,
       [theme.breakpoints.up('sm')]: {
-        height: 48,
-        width: 179,
+        width: 190,
       }
     }
   },

@@ -37,17 +37,6 @@ function MobileMenu(props) {
               />
             </ListItem>
           ))}
-          <ListItem
-            button
-            component="a"
-            href={linkRouter.mobile.contact}
-            style={{ animationDuration: navMenu.length * 0.15 + 's' }}
-          >
-            <ListItemText
-              primary={t('mobile-landing:header_contact')}
-              className={classes.menuList}
-            />
-          </ListItem>
         </List>
       </div>
     </div>
