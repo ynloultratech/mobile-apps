@@ -94,10 +94,10 @@ function Footer(props) {
         <Grid item xs={12} md={6} />
         <Grid item xs={12} md={3}>
           <div className={classes.socmed}>
-            <IconButton aria-label="FB" className={classes.margin} size="small" component={AnchorLink} href="https://www.facebook.com/paynup/">
+            <IconButton aria-label="FB" className={classes.margin} size="small" component={AnchorLink} href="https://twitter.com/paynup">
               <i className="ion-social-twitter" />
             </IconButton>
-            <IconButton aria-label="TW" className={classes.margin} size="small" component={AnchorLink} href="https://twitter.com/paynup">
+            <IconButton aria-label="TW" className={classes.margin} size="small" component={AnchorLink} href="https://www.facebook.com/paynup/">
               <i className="ion-social-facebook" />
             </IconButton>
             <IconButton aria-label="IG" className={classes.margin} size="small" component={AnchorLink} href="https://www.instagram.com/paynup/">
