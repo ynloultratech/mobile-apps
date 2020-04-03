@@ -79,7 +79,10 @@ const bannerStyles = makeStyles(theme => ({
         display: 'block',
         fontSize: '1.8rem',
         fontWeight: 400,
-        color: theme.palette.type === 'dark' ? theme.palette.primary.light : theme.palette.primary.main
+        color: theme.palette.type === 'dark' ? theme.palette.primary.light : theme.palette.primary.main,
+        [theme.breakpoints.down('xs')]: {
+          lineHeight: '2rem',
+        },
       }
     },
     '& h5': {
