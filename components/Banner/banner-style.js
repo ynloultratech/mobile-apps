@@ -69,11 +69,12 @@ const bannerStyles = makeStyles(theme => ({
       marginTop: theme.spacing(12),
       marginBottom: theme.spacing(2.5),
       [theme.breakpoints.down('md')]: {
-        marginTop: theme.spacing(3),
+        marginTop: theme.spacing(3)
       },
       [theme.breakpoints.down('xs')]: {
         marginTop: 0,
-        textAlign: 'center'
+        textAlign: 'center',
+        fontSize: '40px',
       },
       '& strong': {
         display: 'block',
@@ -82,6 +83,8 @@ const bannerStyles = makeStyles(theme => ({
         color: theme.palette.type === 'dark' ? theme.palette.primary.light : theme.palette.primary.main,
         [theme.breakpoints.down('xs')]: {
           lineHeight: '2rem',
+          fontSize: '1.55rem',
+          fontWeight: 600,
         },
       }
     },
