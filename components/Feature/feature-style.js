@@ -80,7 +80,8 @@ const featureStyles = makeStyles(theme => ({
   btn: {
     marginTop: theme.spacing(1),
     color: theme.palette.type === 'dark' ? theme.palette.primary.light : theme.palette.primary.main,
-    textTransform: 'none'
+    textTransform: 'none',
+    border: 'solid hsla(358, 84%, 56%, 0.32) 1px'
   },
   btnLink: {
     marginBottom: theme.spacing(-10),
