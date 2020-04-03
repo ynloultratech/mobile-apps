@@ -63,7 +63,11 @@ const bannerStyles = makeStyles(theme => ({
       height: 560
     },
     '& h3': {
+      fontSize: '48px',
+      fontWeight: 700,
+      lineHeight: '52px',
       marginTop: theme.spacing(12),
+      marginBottom: theme.spacing(2.5),
       [theme.breakpoints.down('md')]: {
         marginTop: theme.spacing(3),
       },
@@ -73,17 +77,17 @@ const bannerStyles = makeStyles(theme => ({
       },
       '& strong': {
         display: 'block',
-        fontSize: '1.6rem',
-        fontWeight: theme.typography.fontWeightBold,
+        fontSize: '1.8rem',
+        fontWeight: 400,
         color: theme.palette.type === 'dark' ? theme.palette.primary.light : theme.palette.primary.main
       }
     },
     '& h5': {
-      fontSize: '21px',
-      fontWeight: 600,
-      color: theme.palette.text.secondary,
-      lineHeight: '44px',
-      margin: theme.spacing(4, 0),
+      fontSize: '20px',
+      fontWeight: 500,
+      color: 'rgba(0, 0, 0, 0.54)',
+      lineHeight: '28px',
+      margin: '25px 0px 32px 0px',
       [theme.breakpoints.down('xs')]: {
         textAlign: 'center'
       },
