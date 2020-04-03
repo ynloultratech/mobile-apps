@@ -5,7 +5,8 @@ import clsx from 'clsx';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import Hidden from '@material-ui/core/Hidden';
-import Link from 'next/link';
+import Link from '@material-ui/core/Link';
+import NextLink from 'next/link';
 import Container from '@material-ui/core/Container';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { useTheme } from '@material-ui/core/styles';
@@ -100,11 +101,11 @@ function Header(props) {
               )}
               <div className={classes.logo}>
                 {invert ? (
-                  <Link href={linkRouter.mobile.home}>
+                  <NextLink href={linkRouter.mobile.home}>
                     <a>
                       <img src={fixed ? logo : logoLarge} alt="logo" />
                     </a>
-                  </Link>
+                  </NextLink>
                 ) : (
                   <AnchorLink href="#home">
                     <img src={fixed ? logo : logoLarge} alt="logo" />
@@ -138,9 +139,9 @@ function Header(props) {
               {!invert && (
                 <Hidden xsDown>
                   <Fragment>
-                    <IconButton aria-label="facebook" className={classes.socialBtn} size="small" component={AnchorLink} href="https://www.facebook.com/paynup/">
+                    <Link aria-label="facebook" className={classes.socialBtn} href="https://www.facebook.com/paynup/" target="_blank" rel="noopener noreferrer">
                       <i className="ion-social-twitter" />
-                    </IconButton>
+                    </Link>
                     <IconButton aria-label="twitter" className={classes.socialBtn} size="small" component={AnchorLink} href="https://twitter.com/paynup">
                       <i className="ion-social-facebook" />
                     </IconButton>

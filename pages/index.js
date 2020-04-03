@@ -113,7 +113,6 @@ function Landing(props) {
           <Notification />
         </Hidden>
         <script src="/static/scripts/particles-spray.js" />
-        <script src="https://refill-bar.paynup.com/index.js" />
       </div>
     </React.Fragment>
   );
