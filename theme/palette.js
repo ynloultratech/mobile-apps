@@ -100,12 +100,12 @@ module.exports = {
   paynup: {
     palette: {
       primary: {
-        light: '#fafafa',
+        light: '#f7bcbe',
         main: '#ED3237',
         dark: '#373435'
       },
       secondary: {
-        light: '#fafafa',
+        light: '#e8c5c6',
         main: '#373435',
         dark: '#a22f30'
       }
