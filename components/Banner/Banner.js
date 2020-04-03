@@ -95,11 +95,6 @@ function Banner(props) {
             <div className={classes.decoration}>
               <div className={classes.phoneIllustration}>
                 <img src={imgAPI.mobile[0]} className={classes.phone} alt="illustration" />
-                <Hidden mdDown>
-                  <img src={imgAPI.mobile[1]} className={clsx(classes.widgetTop, 'fragment-fadeUp')} alt="illustration" />
-                  <img src={imgAPI.mobile[2]} className={clsx(classes.widgetLeft, 'fragment-fadeUp')} alt="illustration" />
-                  <img src={imgAPI.mobile[3]} className={clsx(classes.widgetRight, 'fragment-fadeUp')} alt="illustration" />
-                </Hidden>
               </div>
             </div>
           </Grid>
