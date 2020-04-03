@@ -72,12 +72,17 @@ const bannerStyles = makeStyles(theme => ({
         textAlign: 'center'
       },
       '& strong': {
+        display: 'block',
+        fontSize: '1.6rem',
         fontWeight: theme.typography.fontWeightBold,
         color: theme.palette.type === 'dark' ? theme.palette.primary.light : theme.palette.primary.main
       }
     },
     '& h5': {
+      fontSize: '21px',
+      fontWeight: 600,
       color: theme.palette.text.secondary,
+      lineHeight: '44px',
       margin: theme.spacing(4, 0),
       [theme.breakpoints.down('xs')]: {
         textAlign: 'center'
