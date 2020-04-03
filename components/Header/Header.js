@@ -139,13 +139,13 @@ function Header(props) {
               {!invert && (
                 <Hidden xsDown>
                   <Fragment>
-                    <Link aria-label="facebook" TypographyClasses="" className={classes.socialBtn} href="https://www.facebook.com/paynup/" target="_blank" rel="noopener noreferrer">
+                    <IconButton aria-label="facebook" className={classes.socialBtn} size="small" component={Link} href="https://www.facebook.com/paynup/" target="_blank" rel="noopener noreferrer">
                       <i className="ion-social-twitter" />
-                    </Link>
-                    <IconButton aria-label="twitter" className={classes.socialBtn} size="small" component={AnchorLink} href="https://twitter.com/paynup">
+                    </IconButton>
+                    <IconButton aria-label="twitter" className={classes.socialBtn} size="small" component={Link} href="https://twitter.com/paynup" target="_blank" rel="noopener noreferrer">
                       <i className="ion-social-facebook" />
                     </IconButton>
-                    <IconButton aria-label="instagram" className={classes.socialBtn} size="small" component={AnchorLink} href="https://www.instagram.com/paynup/">
+                    <IconButton aria-label="instagram" className={classes.socialBtn} size="small" component={Link} href="https://www.instagram.com/paynup/" target="_blank" rel="noopener noreferrer">
                       <i className="ion-social-instagram" />
                     </IconButton>
                   </Fragment>

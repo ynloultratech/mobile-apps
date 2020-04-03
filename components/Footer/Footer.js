@@ -4,24 +4,20 @@ import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import clsx from 'clsx';
 import { useTheme } from '@material-ui/core/styles';
-import ExpansionPanel from '@material-ui/core/ExpansionPanel';
-import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
-import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import LangIcon from '@material-ui/icons/Language';
 import InputAdornment from '@material-ui/core/InputAdornment';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import Typography from '@material-ui/core/Typography';
 import Select from '@material-ui/core/Select';
+import Link from '@material-ui/core/Link';
 import OutlinedInput from '@material-ui/core/OutlinedInput';
 import MenuItem from '@material-ui/core/MenuItem';
-import Link from '@material-ui/core/Link';
 import IconButton from '@material-ui/core/IconButton';
 import brand from '~/static/text/brand';
 import logo from '~/static/images/mobile-logo-gray.png';
 import { i18n } from '~/i18n';
-import useStyles from './footer-style';
 import AnchorLink from 'react-anchor-link-smooth-scroll';
+import useStyles from './footer-style';
 
 function Copyright() {
   return (
@@ -94,13 +90,13 @@ function Footer(props) {
         <Grid item xs={12} md={6} />
         <Grid item xs={12} md={3}>
           <div className={classes.socmed}>
-            <IconButton aria-label="FB" className={classes.margin} size="small" component={AnchorLink} href="https://twitter.com/paynup">
+            <IconButton aria-label="FB" className={classes.margin} size="small" component={Link} href="https://twitter.com/paynup" target="_blank" rel="noopener noreferrer">
               <i className="ion-social-twitter" />
             </IconButton>
-            <IconButton aria-label="TW" className={classes.margin} size="small" component={AnchorLink} href="https://www.facebook.com/paynup/">
+            <IconButton aria-label="TW" className={classes.margin} size="small" component={Link} href="https://www.facebook.com/paynup/" target="_blank" rel="noopener noreferrer">
               <i className="ion-social-facebook" />
             </IconButton>
-            <IconButton aria-label="IG" className={classes.margin} size="small" component={AnchorLink} href="https://www.instagram.com/paynup/">
+            <IconButton aria-label="IG" className={classes.margin} size="small" component={Link} href="https://www.instagram.com/paynup/" target="_blank" rel="noopener noreferrer">
               <i className="ion-social-instagram" />
             </IconButton>
           </div>
