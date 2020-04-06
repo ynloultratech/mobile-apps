@@ -18,12 +18,12 @@ import imgAPI from '~/static/images/imgAPI';
 import { withTranslation } from '~/i18n';
 import { useText } from '~/theme/common';
 import yt from '~/youtube';
+import Button from '@material-ui/core/Button';
+import Link from '@material-ui/core/Link';
 import ParallaxSmall from '../Parallax/Small';
-import ParallaxMedium from '../Parallax/Medium';
 import TitleSecondary from '../Title/TitleSecondary';
 import Title from '../Title';
 import useStyles from './feature-style';
-import Button from '@material-ui/core/Button';
 
 const Transition = React.forwardRef(function Transition(props, ref) { // eslint-disable-line
   return <Zoom ref={ref} {...props} />;
@@ -182,7 +182,7 @@ function Feature(props) {
                       </Typography>
                     </Paper>
                   </div>
-                  <Button size="small" className={classes.btnLink}>Add Our Bar Now</Button>
+                  <Button component={Link} href="https://www.w3schools.com/code/tryit.asp?filename=GCIMC6T4TEGV" target="_blank" rel="noreferrer noopener" className={classes.btnLink}>Add Our Bar Now</Button>
                 </Grid>
               </Grid>
             </Container>

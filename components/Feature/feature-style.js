@@ -86,7 +86,11 @@ const featureStyles = makeStyles(theme => ({
   btnLink: {
     marginBottom: theme.spacing(-10),
     color: theme.palette.primary.light,
-    textTransform: 'none'
+    textTransform: 'none',
+    border: 'solid hsla(0, 0%, 100%, 0.32) 1px;',
+    '&:hover': {
+      textDecoration: 'none',
+    }
   },
   item: {
     position: 'relative',
