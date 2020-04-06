@@ -64,6 +64,7 @@ function Header(props) {
   } = props;
   const isDesktop = useMediaQuery(theme.breakpoints.up('lg'));
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+  const isExtraSmallMobile = useMediaQuery(theme.breakpoints.down('xs'));
   const [menuList] = useState([
     createData(navMenu[0], '#' + navMenu[0]),
     createData(navMenu[1], '#' + navMenu[1]),
@@ -89,7 +90,7 @@ function Header(props) {
         <Container fixed={isDesktop}>
           <div className={classes.headerContent}>
             <nav className={clsx(classes.navMenu, invert && classes.invert)}>
-              { isMobile && (
+              { isMobile && !isExtraSmallMobile && (
                 <IconButton
                   onClick={handleOpenDrawer}
                   className={clsx('hamburger hamburger--spin', classes.mobileMenu, openDrawer && 'is-active')}
@@ -151,7 +152,16 @@ function Header(props) {
                   </Fragment>
                 </Hidden>
               )}
-              <Settings toggleDark={onToggleDark} toggleDir={onToggleDir} invert={invert} />
+              { isMobile && isExtraSmallMobile && (
+                <IconButton
+                  onClick={handleOpenDrawer}
+                  className={clsx('hamburger hamburger--spin', classes.mobileMenu, openDrawer && 'is-active')}
+                >
+                  <span className="hamburger-box">
+                    <span className={clsx(classes.bar, 'hamburger-inner')} />
+                  </span>
+                </IconButton>
+              )}
             </nav>
           </div>
         </Container>

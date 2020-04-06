@@ -124,6 +124,7 @@ const headerStyles = makeStyles(theme => ({
       width: 280,
       [theme.breakpoints.down('xs')]: {
         width: 200,
+        marginLeft: theme.spacing(2),
       }
     }
   },
@@ -258,7 +259,7 @@ const headerStyles = makeStyles(theme => ({
     width: '100%',
     background: theme.palette.background.paper,
     [theme.breakpoints.up(680)]: {
-      width: 300,
+      width: 375,
     },
   },
   mobileMenu: {
