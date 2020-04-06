@@ -188,7 +188,7 @@ const footerStyles = makeStyles(theme => ({
     top: 0,
     backgroundImage: `linear-gradient(30deg, ${theme.palette.type === 'dark' ? theme.palette.primary.dark : theme.palette.primary.main} 50%, ${theme.palette.type === 'dark' ? theme.palette.secondary.dark : theme.palette.secondary.main} 140%)`,
     paddingTop: theme.spacing(40),
-    marginTop: -360,
+    marginTop: 0,
     [theme.breakpoints.up('xl')]: {
       paddingTop: theme.spacing(20),
       marginTop: theme.spacing(20)

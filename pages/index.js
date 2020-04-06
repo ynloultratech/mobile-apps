@@ -101,9 +101,6 @@ function Landing(props) {
           <section className={classes.spaceTopShort}>
             <CompanyLogo />
           </section>
-          <section id="news" className={classes.spaceTopShort}>
-            <NewsEvent />
-          </section>
         </main>
         <FooterWithDeco toggleDir={onToggleDir} />
         <Hidden mdDown>

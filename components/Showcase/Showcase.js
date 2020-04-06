@@ -1,11 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
-import Carousel from 'react-slick';
-import Paper from '@material-ui/core/Paper';
-import imgAPI from '~/static/images/imgAPI';
 import { withTranslation } from '~/i18n';
-import ParallaxLarge from '../Parallax/Large';
-import Title from '../Title';
 import useStyles from './showcase-style';
 
 function Showcase(props) {
