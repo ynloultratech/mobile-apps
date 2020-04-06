@@ -50,7 +50,7 @@ const HeadComponent = () => (
     <meta property="twitter:card" content="summary" />
     <meta property="twitter:image:src" content="/static/images/mobile-logo.png" />
     <meta property="og:url" content={brand.mobile.url} />
-    <meta property="og:title" content={brand.mobile.desc} />
+    <meta property="og:title" content={brand.mobile.ogTitle} />
     <meta
       property="og:description"
       content={brand.mobile.desc}
