@@ -1,5 +1,7 @@
 const CACHE_NAME = 'paynup-cache-v1';
-const urlsToCache = ['/'];
+const urlsToCache = [
+  '/index.html',
+];
 
 self.addEventListener('install', event => {
   const preLoaded = caches.open(CACHE_NAME)
