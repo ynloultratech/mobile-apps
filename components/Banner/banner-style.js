@@ -66,7 +66,7 @@ const bannerStyles = makeStyles(theme => ({
       fontSize: '48px',
       fontWeight: 700,
       lineHeight: '52px',
-      marginTop: theme.spacing(12),
+      marginTop: '165px',
       marginBottom: theme.spacing(2.5),
       [theme.breakpoints.down('md')]: {
         marginTop: theme.spacing(3)
