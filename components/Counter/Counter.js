@@ -43,7 +43,7 @@ function Counter(props) {
                     M
                   </Typography>
                   <Typography component="p" className={text.subtitle}>
-                    <i className="ion-ios-cloud-download-outline" />
+                    <i className="ion-ios-people-outline" />
                     {t('mobile-landing:counter_downloads')}
                   </Typography>
                 </div>
