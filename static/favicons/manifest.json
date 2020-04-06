@@ -1,5 +1,9 @@
 {
- "name": "App",
+ "name": "Paynup Site",
+ "short_name": "Paynup",
+ "background_color": "white",
+ "display": "fullscreen",
+ "start_url": "/index.html",
  "icons": [
   {
    "src": "\/android-icon-36x36.png",
