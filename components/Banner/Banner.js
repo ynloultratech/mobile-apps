@@ -88,6 +88,7 @@ function Banner(props) {
                     <img src="/static/images/mobile/play-store.png" alt="play store" />
                   </a>
                 </Link>
+                <button className="add-button">Add to home screen</button>
               </div>
             </div>
           </Grid>

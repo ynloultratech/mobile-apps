@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import Head from 'next/head';
 import Hidden from '@material-ui/core/Hidden';
@@ -65,18 +65,6 @@ const useStyles = makeStyles(theme => ({
 function Landing(props) {
   const classes = useStyles();
   const { onToggleDark, onToggleDir } = props;
-
-  useEffect(() => {
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('/static/scripts/sw.js')
-        .catch(err => console.error('Service worker registration failed', err));
-    } else {
-      console.log('Service worker not supported');
-    }
-
-    window.addEventListener('beforeinstallprompt', (e) => {
-    });
-  }, []);
 
   return (
     <React.Fragment>
