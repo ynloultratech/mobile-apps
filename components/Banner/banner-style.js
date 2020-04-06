@@ -170,7 +170,10 @@ const bannerStyles = makeStyles(theme => ({
   phone: {
     width: 600,
     right: -40,
-    bottom: 0
+    bottom: 0,
+    [theme.breakpoints.down('xs')]: {
+      bottom: -100,
+    },
   },
   widgetTop: {
     width: 150,
