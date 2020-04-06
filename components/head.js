@@ -30,7 +30,7 @@ const HeadComponent = () => (
     <link rel="icon" type="image/png" sizes="32x32" href="/static/favicons/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="96x96" href="/static/favicons/favicon-96x96.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/static/favicons/favicon-16x16.png" />
-    <link rel="manifest" href="/static/favicons/manifest.webmanifest" />
+    <link rel="manifest" href="/static/favicons/manifest.json" />
     <meta name="msapplication-TileColor" content="#ffffff" />
     <meta name="msapplication-TileImage" content="/static/favicons/ms-icon-144x144.png" />
     {/* PWA primary color */}
@@ -39,14 +39,14 @@ const HeadComponent = () => (
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
     <link href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" />
     {/*  Facebook */}
-    <meta property="author" content="luxi" />
-    <meta property="og:site_name" content="luxi.ux-maestro.com" />
+    <meta property="author" content="Ynlo Ultratech Inc" />
+    <meta property="og:site_name" content="site.paynup.com" />
     <meta property="og:locale" content="en_US" />
     <meta property="og:type" content="website" />
     {/*  Twitter */}
-    <meta property="twitter:site" content="luxi.ux-maestro.com" />
-    <meta property="twitter:domain" content="luxi.ux-maestro.com" />
-    <meta property="twitter:creator" content="luxi" />
+    <meta property="twitter:site" content="site.paynup.com" />
+    <meta property="twitter:domain" content="site.paynup.com" />
+    <meta property="twitter:creator" content="Ynlo Ultratech Inc" />
     <meta property="twitter:card" content="summary" />
     <meta property="twitter:image:src" content="/static/images/mobile-logo.png" />
     <meta property="og:url" content={brand.mobile.url} />

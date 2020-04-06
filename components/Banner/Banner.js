@@ -47,7 +47,7 @@ function Banner(props) {
       primaryColor: '#ED3237',
       secondaryColor: '#eda54a',
     });
-  });
+  }, []);
 
   return (
     <div className={classes.root} ref={elem}>
@@ -94,7 +94,7 @@ function Banner(props) {
           <Grid item md={5} xs={12}>
             <div className={classes.decoration}>
               <div className={classes.phoneIllustration}>
-                <img src={imgAPI.mobile[0]} className={classes.phone} alt="illustration" />
+                <img src={isDesktop ? imgAPI.mobile[24] : imgAPI.mobile[0]} className={classes.phone} alt="illustration" />
               </div>
             </div>
           </Grid>

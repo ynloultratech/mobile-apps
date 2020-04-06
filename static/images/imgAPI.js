@@ -53,6 +53,7 @@ const imgAPI = {
     '/static/images/mobile/btns-examples.png',
     '/static/images/mobile/customize.png',
     '/static/images/mobile/sample-site-code.png',
+    '/static/images/mobile/mobile_banner_qr.png',
   ]
 };
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Head from 'next/head';
 import Hidden from '@material-ui/core/Hidden';
@@ -11,7 +11,6 @@ import Feature from '../components/Feature';
 import Showcase from '../components/Showcase';
 import Testimonials from '../components/Testimonials';
 import CompanyLogo from '../components/CompanyLogo';
-import NewsEvent from '../components/NewsEvent';
 import FooterWithDeco from '../components/Footer/FooterWithDeco';
 import PageNav from '../components/PageNav';
 import Notification from '../components/Notification';
@@ -66,6 +65,15 @@ const useStyles = makeStyles(theme => ({
 function Landing(props) {
   const classes = useStyles();
   const { onToggleDark, onToggleDir } = props;
+
+  useEffect(() => {
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/static/scripts/sw.js')
+        .catch(err => console.error('Service worker registration failed', err));
+    } else {
+      console.log('Service worker not supported');
+    }
+  }, []);
 
   return (
     <React.Fragment>
