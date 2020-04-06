@@ -73,6 +73,9 @@ function Landing(props) {
     } else {
       console.log('Service worker not supported');
     }
+
+    window.addEventListener('beforeinstallprompt', (e) => {
+    });
   }, []);
 
   return (
