@@ -1,7 +1,7 @@
 module.exports = {
   mobile: {
     name: 'Paynup Site',
-    desc: 'Paynup Site Page',
+    desc: 'paynup.com offers discounted prepaid bill payment to over 500 networks across 140 countries',
     prefix: 'paynup',
     footerText: '2020 by YNLO Ultratech INC.',
     logoText: 'Paynup Site',
