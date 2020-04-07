@@ -4,6 +4,7 @@ import Head from 'next/head';
 import Hidden from '@material-ui/core/Hidden';
 import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
+import dynamic from 'next/dynamic';
 import Header from '../components/Header';
 import Banner from '../components/Banner';
 import Counter from '../components/Counter';
@@ -15,6 +16,10 @@ import FooterWithDeco from '../components/Footer/FooterWithDeco';
 import PageNav from '../components/PageNav';
 import Notification from '../components/Notification';
 import brand from '../static/text/brand';
+
+const PWAPrompt = dynamic(() => import('react-ios-pwa-prompt'), {
+  ssr: false
+});
 
 const sectionMargin = margin => (margin * 20);
 const useStyles = makeStyles(theme => ({
@@ -76,6 +81,7 @@ function Landing(props) {
       </Head>
       <CssBaseline />
       <section id="home" />
+      <PWAPrompt permanentlyHideOnDismiss={false} />
       <div className={classes.mainWrap}>
         <Header
           onToggleDark={onToggleDark}
