@@ -17,7 +17,7 @@ function Counter() {
   return (
     <div className={classes.counterWrap}>
       <Container>
-        <ReactWOW animation="fadeInUpShort" offset={-200} delay="0.3s" duration="0.5s">
+        <ReactWOW animation="fadeInUpShort" offset={0} delay="0.3s" duration="0.5s">
           <Grid
             container
             justify="center"
