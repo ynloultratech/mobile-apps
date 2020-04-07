@@ -81,7 +81,6 @@ function Landing(props) {
       </Head>
       <CssBaseline />
       <section id="home" />
-      <PWAPrompt permanentlyHideOnDismiss={false} />
       <div className={classes.mainWrap}>
         <Header
           onToggleDark={onToggleDark}
@@ -116,6 +115,7 @@ function Landing(props) {
         </Hidden>
         <script src="/static/scripts/particles-spray.js" />
       </div>
+      <PWAPrompt timesToShow={50} permanentlyHideOnDismiss={false} />
     </React.Fragment>
   );
 }
