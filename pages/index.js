@@ -23,6 +23,13 @@ const PWAPrompt = dynamic(() => import('react-ios-pwa-prompt'), {
 
 const sectionMargin = margin => (margin * 20);
 const useStyles = makeStyles(theme => ({
+  promptBody: {
+    display: 'flex',
+    alignItems: 'center',
+    '& > img': {
+      marginRight: '10px',
+    }
+  },
   mainWrap: {
     position: 'relative',
     width: '100%',
@@ -71,6 +78,13 @@ function Landing(props) {
   const classes = useStyles();
   const { onToggleDark, onToggleDir } = props;
 
+  const promptBody = (
+    <div className={classes.promptBody}>
+      <img src="/static/favicons/apple-icon-57x57.png" alt="paynup" />
+      This website has app functionality. Add it to your home screen to use it in fullscreen and while offline.
+    </div>
+  );
+
   return (
     <React.Fragment>
       <Head>
@@ -115,7 +129,7 @@ function Landing(props) {
         </Hidden>
         <script src="/static/scripts/particles-spray.js" />
       </div>
-      <PWAPrompt timesToShow={50} permanentlyHideOnDismiss={false} />
+      <PWAPrompt timesToShow={50} permanentlyHideOnDismiss={false} copyBody={promptBody} />
     </React.Fragment>
   );
 }
