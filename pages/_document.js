@@ -1,6 +1,7 @@
 import React from 'react';
 import Document, { Main, NextScript } from 'next/document';
 import { ServerStyleSheets } from '@material-ui/styles';
+import PWAPrompt from 'react-ios-pwa-prompt';
 import HeadComponent from '../components/head';
 
 class MyDocument extends Document {
@@ -31,6 +32,7 @@ class MyDocument extends Document {
             />
           </div>
           <Main />
+          <PWAPrompt />
           <NextScript />
         </body>
       </html>

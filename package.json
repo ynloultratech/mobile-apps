@@ -47,6 +47,7 @@
 		"react-dom": "16.8.6",
 		"react-i18next": "^10.11.2",
 		"react-ionicons": "^3.0.1",
+		"react-ios-pwa-prompt": "^1.7.0",
 		"react-loading-bar": "^0.0.7",
 		"react-material-ui-form-validator": "^2.0.9",
 		"react-scroll-parallax": "^2.1.2",
