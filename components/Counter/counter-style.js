@@ -1,6 +1,16 @@
 import { makeStyles } from '@material-ui/core/styles';
 
 const counterStyles = makeStyles(theme => ({
+  egift: {
+    display: 'flex',
+    '& > img': {
+      width: '100px',
+      margin: theme.spacing(0, 2.3),
+      [theme.breakpoints.down('md')]: {
+        margin: 0
+      }
+    }
+  },
   counterWrap: {
     margin: theme.spacing(10, 0),
     [theme.breakpoints.down('md')]: {

@@ -54,6 +54,17 @@ const imgAPI = {
     '/static/images/mobile/customize.png',
     '/static/images/mobile/sample-site-code.png',
     '/static/images/mobile/mobile_banner_qr.png',
+  ],
+  egift: [
+    '/static/images/egift/amazon.png',
+    '/static/images/egift/bestbuyt.png',
+    '/static/images/egift/googleplay.png',
+    '/static/images/egift/nintendo.png',
+    '/static/images/egift/playstation.png',
+    '/static/images/egift/skype.png',
+    '/static/images/egift/walmart.png',
+    '/static/images/egift/xboxt.png',
+    '/static/images/egift/xfinity.png',
   ]
 };
 

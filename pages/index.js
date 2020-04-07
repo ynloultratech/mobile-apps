@@ -62,8 +62,10 @@ const useStyles = makeStyles(theme => ({
   },
   spaceTopShort: {
     marginTop: sectionMargin(theme.spacing() / 2),
+    marginBottom: sectionMargin(theme.spacing() / 2),
     [theme.breakpoints.down('sm')]: {
       marginTop: sectionMargin(2),
+      marginBottom: sectionMargin(2),
     }
   },
   containerWrap: {

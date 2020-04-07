@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ReactWOW from 'react-wow';
+import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 import { withTranslation } from '~/i18n';
@@ -32,7 +33,7 @@ function CompanyLogo(props) {
   }
 
   return (
-    <Container fixed>
+    <Container className={classes.logosContainer} fixed>
       <Typography
         align="center"
         variant="h4"
@@ -42,11 +43,18 @@ function CompanyLogo(props) {
       </Typography>
       <ReactWOW animation="fadeInUpShort" offset={-200} delay="0.3s" duration="0.5s">
         {chunks.map((items, i) => (
-          <div className={classes.root} key={i.toString()}>
+          <Grid
+            container
+            justify="center"
+            alignItems="center"
+            className={classes.companyLogos}
+            spacing={6}
+            key={i.toString()}
+          >
             {items.map((logo, index) => (
               <img src={logo} alt={'logo' + index.toString()} key={index.toString()} />
             ))}
-          </div>
+          </Grid>
         ))}
       </ReactWOW>
     </Container>

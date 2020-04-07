@@ -21,7 +21,7 @@ const footerStyles = makeStyles(theme => ({
     },
     [theme.breakpoints.down('md')]: {
       transform: 'scale(1.2, 0.7)',
-      top: -80
+      top: -50
     },
     [theme.breakpoints.down('xs')]: {
       transform: 'scale(0.5, 0.5)',

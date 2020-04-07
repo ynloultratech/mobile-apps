@@ -1,84 +1,31 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import CountUp from 'react-countup';
 import ReactWOW from 'react-wow';
-import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
 import { withTranslation } from '~/i18n';
-import { useText } from '~/theme/common';
 import useStyles from './counter-style';
+import imgAPI from '~/static/images/imgAPI';
 
-function Counter(props) {
+function Counter() {
   const classes = useStyles();
-  const text = useText();
-  const { t } = props;
 
-  const [play, setPlay] = useState(false);
-  const countup = (val, isPlay) => (
-    <span>
-      {isPlay ? <CountUp end={val} /> : 0}
-    </span>
-  );
-  const handlePlay = () => {
-    setTimeout(() => { setPlay(true); }, 200);
-  };
+  const egift = imgAPI.egift.map((path, i) => (
+    <img src={path} alt="illustration" key={i.toString()} />
+  ));
+
   return (
     <div className={classes.counterWrap}>
-      <Container maxWidth="md">
-        <ReactWOW animation="fadeIn" offset={200} callback={handlePlay}>
+      <Container>
+        <ReactWOW animation="fadeInUpShort" offset={-200} delay="0.3s" duration="0.5s">
           <Grid
             container
             justify="center"
             alignItems="center"
-            className={classes.counterInner}
+            className={classes.egift}
             spacing={6}
           >
-            <Grid sm={4} xs={6} item>
-              <div className={classes.counterItem}>
-                <div className={classes.text}>
-                  <Typography variant="h3" className={text.title}>
-                    +
-                    {countup(200, play)}
-                    M
-                  </Typography>
-                  <Typography component="p" className={text.subtitle}>
-                    <i className="ion-ios-people-outline" />
-                    {t('mobile-landing:counter_downloads')}
-                  </Typography>
-                </div>
-              </div>
-            </Grid>
-            <Grid sm={4} xs={6} item>
-              <div className={classes.counterItem}>
-                <div className={classes.text}>
-                  <Typography variant="h3" className={text.title}>
-                    +
-                    {countup(480, play)}
-                    M
-                  </Typography>
-                  <Typography component="p" className={text.subtitle}>
-                    <i className="ion-ios-checkmark-outline" />
-                    {t('mobile-landing:counter_transaction')}
-                  </Typography>
-                </div>
-              </div>
-            </Grid>
-            <Grid sm={4} xs={6} item>
-              <div className={classes.counterItem}>
-                <div className={classes.text}>
-                  <Typography variant="h3" className={text.title}>
-                    +
-                    {countup(180, play)}
-                    M
-                  </Typography>
-                  <Typography component="p" className={text.subtitle}>
-                    <i className="ion-ios-star-outline" />
-                    {t('mobile-landing:counter_ratting')}
-                  </Typography>
-                </div>
-              </div>
-            </Grid>
+            {egift}
           </Grid>
         </ReactWOW>
       </Container>
