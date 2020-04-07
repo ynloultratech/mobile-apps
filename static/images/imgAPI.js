@@ -63,7 +63,7 @@ const imgAPI = {
     '/static/images/egift/playstation.png',
     '/static/images/egift/ultra.png',
     '/static/images/egift/walmart.png',
-    '/static/images/egift/varizon.png',
+    '/static/images/egift/verizon.png',
     '/static/images/egift/xfinity.png',
   ]
 };
