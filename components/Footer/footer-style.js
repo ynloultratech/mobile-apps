@@ -84,15 +84,15 @@ const footerStyles = makeStyles(theme => ({
     }
   },
   title: {
-    color: theme.palette.common.white,
-    fontSize: 14,
+    color: theme.palette.primary.dark,
+    fontSize: 32,
     textTransform: 'uppercase',
     marginBottom: theme.spacing(3),
     fontWeight: theme.typography.fontWeightBold,
   },
   logo: {
     textAlign: 'center',
-    marginBottom: theme.spacing(3),
+    marginBottom: '20px',
     '& img': {
       width: 194,
       marginRight: theme.spacing(),
@@ -108,7 +108,7 @@ const footerStyles = makeStyles(theme => ({
   socmed: {
     display: 'flex',
     justifyContent: 'center',
-    marginBottom: theme.spacing(4),
+    marginBottom: '23px',
     [theme.breakpoints.down('sm')]: {
       marginTop: theme.spacing(4)
     },
@@ -156,7 +156,19 @@ const footerStyles = makeStyles(theme => ({
       },
     }
   },
-  siteMapItem: {
+  footerLinks: {
+    display: 'flex',
+    flexFlow: 'column',
+    alignItems: 'center',
+    '& > ul': {
+      display: 'flex',
+      '& li': {
+        color: theme.palette.primary.light,
+      },
+      '& li + li': {
+        marginLeft: '10px',
+      },
+    },
     [theme.breakpoints.down('md')]: {
       paddingBottom: '0 !important',
       paddingTop: '0 !important',
