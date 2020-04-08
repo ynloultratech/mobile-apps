@@ -11,6 +11,24 @@ const counterStyles = makeStyles(theme => ({
       }
     }
   },
+  dots: {
+    marginTop: '90px',
+  },
+  dotsDiv: {
+    display: 'flex',
+    justifyContent: 'space-evenly',
+    width: '150px',
+    '& span': {
+      '&:after': {
+        content: '""',
+        width: 17,
+        height: 17,
+        borderRadius: '50%',
+        background: theme.palette.type === 'dark' ? theme.palette.secondary.dark : theme.palette.secondary.light,
+        position: 'absolute',
+      },
+    }
+  },
   counterWrap: {
     margin: theme.spacing(10, 0),
     [theme.breakpoints.down('md')]: {

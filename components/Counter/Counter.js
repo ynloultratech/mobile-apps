@@ -27,6 +27,18 @@ function Counter() {
           >
             {egift}
           </Grid>
+          <Grid
+            container
+            justify="center"
+            alignItems="center"
+            className={classes.dots}
+          >
+            <div className={classes.dotsDiv}>
+              <span />
+              <span />
+              <span />
+            </div>
+          </Grid>
         </ReactWOW>
       </Container>
     </div>
