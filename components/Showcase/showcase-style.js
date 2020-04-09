@@ -191,7 +191,7 @@ const showcaseStyles = makeStyles(theme => ({
         height: 15,
         margin: '0 5px',
         padding: 0,
-        background: theme.palette.secondary.main,
+        background: theme.palette.secondary.light,
         borderRadius: 15,
         transition: 'all 0.5s ease-out',
         '&$active': {
@@ -205,6 +205,7 @@ const showcaseStyles = makeStyles(theme => ({
           cursor: 'pointer',
           padding: 0,
           width: '100%',
+          height: '18px',
         }
       },
     }
