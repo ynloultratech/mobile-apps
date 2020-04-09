@@ -104,7 +104,9 @@ const showcaseStyles = makeStyles(theme => ({
         width: 166,
         height: 365,
       },
-      '& img': {}
+      '& img': {
+        borderRadius: '15px'
+      }
     }
   },
   carouselCenter: {
@@ -136,7 +138,8 @@ const showcaseStyles = makeStyles(theme => ({
       },
       '& img': {
         transition: 'all 0.3s ease-out',
-        transform: 'translateY(30px)'
+        transform: 'translateY(30px)',
+        borderRadius: '15px'
       }
     },
     '& div[class="slick-list"]': {
