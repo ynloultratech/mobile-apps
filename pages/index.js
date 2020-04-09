@@ -109,11 +109,11 @@ function Landing(props) {
           <section id="counter">
             <Counter />
           </section>
-          <section id="feature" className={classes.spaceTop}>
-            <Feature />
-          </section>
           <section id="showcase">
             <Showcase />
+          </section>
+          <section id="feature" className={classes.spaceTop}>
+            <Feature />
           </section>
           <section id="testimonials">
             <Testimonials />

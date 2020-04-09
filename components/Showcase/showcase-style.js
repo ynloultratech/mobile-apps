@@ -4,7 +4,6 @@ import { lighten, darken } from '@material-ui/core/styles/colorManipulator';
 const showcaseStyles = makeStyles(theme => ({
   root: {
     backgroundImage: `linear-gradient(185deg, ${theme.palette.type === 'dark' ? theme.palette.primary.dark : theme.palette.primary.main} 50%, ${theme.palette.type === 'dark' ? theme.palette.secondary.dark : theme.palette.secondary.main} 100%)`,
-    paddingTop: theme.spacing(80),
     [theme.breakpoints.down('md')]: {
       paddingTop: theme.spacing(70),
     },
@@ -19,7 +18,7 @@ const showcaseStyles = makeStyles(theme => ({
     }
   },
   decoTop: {
-    fill: theme.palette.type === 'dark' ? darken(theme.palette.primary.light, 0.65) : lighten(theme.palette.primary.light, 0.8),
+    fill: 'white',
     height: 300,
     width: '100%',
     position: 'absolute',
@@ -33,7 +32,7 @@ const showcaseStyles = makeStyles(theme => ({
     }
   },
   decoBottom: {
-    fill: theme.palette.type === 'dark' ? darken(theme.palette.primary.light, 0.6) : lighten(theme.palette.primary.light, 0.8),
+    fill: 'white',
     height: 300,
     width: '100%',
     position: 'absolute',
