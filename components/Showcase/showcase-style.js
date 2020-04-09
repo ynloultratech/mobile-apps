@@ -5,16 +5,21 @@ const showcaseStyles = makeStyles(theme => ({
   root: {
     backgroundImage: `linear-gradient(185deg, ${theme.palette.type === 'dark' ? theme.palette.primary.dark : theme.palette.primary.main} 50%, ${theme.palette.type === 'dark' ? theme.palette.secondary.dark : theme.palette.secondary.main} 100%)`,
     [theme.breakpoints.down('md')]: {
-      paddingTop: theme.spacing(70),
+      paddingTop: theme.spacing(5),
     },
     [theme.breakpoints.up('xl')]: {
-      paddingTop: theme.spacing(50),
+      paddingTop: theme.spacing(7),
     },
     [theme.breakpoints.down('xs')]: {
-      padding: theme.spacing(60, 3, 0),
+      padding: theme.spacing(5, 3, 0),
     },
     [theme.breakpoints.down(330)]: {
-      padding: theme.spacing(60, 0, 0),
+      padding: theme.spacing(5, 0, 0),
+    },
+    '&&& h3': {
+      [theme.breakpoints.up('xl')]: {
+        color: 'white',
+      },
     }
   },
   decoTop: {
