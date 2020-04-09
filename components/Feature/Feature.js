@@ -182,7 +182,7 @@ function Feature(props) {
                       </Typography>
                     </Paper>
                   </div>
-                  <Button component={Link} href="https://www.w3schools.com/code/tryit.asp?filename=GCIMC6T4TEGV" target="_blank" rel="noreferrer noopener" className={classes.btnLink}>Add Our Bar Now</Button>
+                  <Button size="small" component={Link} href="https://www.w3schools.com/code/tryit.asp?filename=GCIMC6T4TEGV" target="_blank" rel="noreferrer noopener" className={classes.btnLink}>Add Our Bar Now</Button>
                 </Grid>
               </Grid>
             </Container>

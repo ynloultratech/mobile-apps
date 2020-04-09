@@ -84,10 +84,10 @@ const featureStyles = makeStyles(theme => ({
     border: 'solid hsla(358, 84%, 56%, 0.32) 1px'
   },
   btnLink: {
-    marginBottom: theme.spacing(-10),
-    color: theme.palette.primary.light,
+    marginTop: theme.spacing(8),
+    color: theme.palette.type === 'dark' ? theme.palette.primary.light : theme.palette.primary.main,
     textTransform: 'none',
-    border: 'solid hsla(0, 0%, 100%, 0.32) 1px;',
+    border: 'solid hsla(358, 84%, 56%, 0.32) 1px',
     '&:hover': {
       textDecoration: 'none',
     }
