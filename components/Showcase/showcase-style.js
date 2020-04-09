@@ -7,7 +7,7 @@ const showcaseStyles = makeStyles(theme => ({
     [theme.breakpoints.down('md')]: {
       paddingTop: theme.spacing(5),
     },
-    [theme.breakpoints.up('xl')]: {
+    [theme.breakpoints.up(1636)]: {
       paddingTop: theme.spacing(7),
     },
     [theme.breakpoints.down('xs')]: {
@@ -17,7 +17,7 @@ const showcaseStyles = makeStyles(theme => ({
       padding: theme.spacing(5, 0, 0),
     },
     '&&& h3': {
-      [theme.breakpoints.up('xl')]: {
+      [theme.breakpoints.up(1636)]: {
         color: 'white',
       },
     }
@@ -32,7 +32,7 @@ const showcaseStyles = makeStyles(theme => ({
     [theme.breakpoints.up('lg')]: {
       transform: 'scale(1.5, 1)'
     },
-    [theme.breakpoints.up('xl')]: {
+    [theme.breakpoints.up(1636)]: {
       display: 'none'
     }
   },
@@ -46,7 +46,7 @@ const showcaseStyles = makeStyles(theme => ({
     [theme.breakpoints.up('lg')]: {
       transform: 'scale(1.5, 1)'
     },
-    [theme.breakpoints.up('xl')]: {
+    [theme.breakpoints.up(1636)]: {
       display: 'none'
     },
     [theme.breakpoints.down('sm')]: {
