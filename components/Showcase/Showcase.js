@@ -4,7 +4,6 @@ import Carousel from 'react-slick';
 import Paper from '@material-ui/core/Paper';
 import imgAPI from '~/static/images/imgAPI';
 import { withTranslation } from '~/i18n';
-import ParallaxLarge from '../Parallax/Large';
 import Title from '../Title';
 import useStyles from './showcase-style';
 
@@ -44,6 +43,8 @@ function Showcase(props) {
     centerPadding: '10px',
     slidesToShow: 5,
     arrows: false,
+    autoplay: true,
+    autoplaySpeed: 3000,
     responsive: [{
       breakpoint: 800,
       settings: {
