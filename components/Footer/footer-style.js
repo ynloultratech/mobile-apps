@@ -85,7 +85,7 @@ const footerStyles = makeStyles(theme => ({
   },
   title: {
     color: theme.palette.primary.dark,
-    fontSize: 32,
+    fontSize: 36,
     textTransform: 'uppercase',
     marginBottom: theme.spacing(3),
     fontWeight: theme.typography.fontWeightBold,
