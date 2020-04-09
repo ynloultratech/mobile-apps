@@ -70,37 +70,37 @@ function Showcase(props) {
           <Carousel ref={sliderSide} asNavFor={slider.nav2} {...settingsSide}>
             <div className={classes.item}>
               <Paper className={classes.frame}>
-                <img src={imgAPI.mobile[7]} alt="app" />
+                <img src={imgAPI.mobile[25]} alt="app" />
               </Paper>
             </div>
             <div className={classes.item}>
               <Paper className={classes.frame}>
-                <img src={imgAPI.mobile[8]} alt="app" />
+                <img src={imgAPI.mobile[26]} alt="app" />
               </Paper>
             </div>
             <div className={classes.item}>
               <Paper className={classes.frame}>
-                <img src={imgAPI.mobile[9]} alt="app" />
+                <img src={imgAPI.mobile[27]} alt="app" />
               </Paper>
             </div>
             <div className={classes.item}>
               <Paper className={classes.frame}>
-                <img src={imgAPI.mobile[10]} alt="app" />
+                <img src={imgAPI.mobile[28]} alt="app" />
               </Paper>
             </div>
             <div className={classes.item}>
               <Paper className={classes.frame}>
-                <img src={imgAPI.mobile[11]} alt="app" />
+                <img src={imgAPI.mobile[29]} alt="app" />
               </Paper>
             </div>
             <div className={classes.item}>
               <Paper className={classes.frame}>
-                <img src={imgAPI.mobile[12]} alt="app" />
+                <img src={imgAPI.mobile[30]} alt="app" />
               </Paper>
             </div>
             <div className={classes.item}>
               <Paper className={classes.frame}>
-                <img src={imgAPI.mobile[13]} alt="app" />
+                <img src={imgAPI.mobile[31]} alt="app" />
               </Paper>
             </div>
           </Carousel>
@@ -109,43 +109,43 @@ function Showcase(props) {
           <Paper className={classes.frame}>
             <Carousel ref={sliderCenter} asNavFor={slider.nav1} {...settingsCenter}>
               <div className={classes.item}>
-                <img src={imgAPI.mobile[7]} alt="app" />
+                <img src={imgAPI.mobile[25]} alt="app" />
                 <div className={classes.widget}>
                   <img src={imgAPI.mobile[17]} alt="app" />
                 </div>
               </div>
               <div className={classes.item}>
-                <img src={imgAPI.mobile[8]} alt="app" />
+                <img src={imgAPI.mobile[26]} alt="app" />
                 <div className={classes.widget}>
                   <img src={imgAPI.mobile[14]} alt="app" />
                 </div>
               </div>
               <div className={classes.item}>
-                <img src={imgAPI.mobile[9]} alt="app" />
+                <img src={imgAPI.mobile[27]} alt="app" />
                 <div className={classes.widget}>
                   <img src={imgAPI.mobile[15]} alt="app" />
                 </div>
               </div>
               <div className={classes.item}>
-                <img src={imgAPI.mobile[10]} alt="app" />
+                <img src={imgAPI.mobile[28]} alt="app" />
                 <div className={classes.widget}>
                   <img src={imgAPI.mobile[19]} alt="app" />
                 </div>
               </div>
               <div className={classes.item}>
-                <img src={imgAPI.mobile[11]} alt="app" />
+                <img src={imgAPI.mobile[29]} alt="app" />
                 <div className={classes.widget}>
                   <img src={imgAPI.mobile[18]} alt="app" />
                 </div>
               </div>
               <div className={classes.item}>
-                <img src={imgAPI.mobile[12]} alt="app" />
+                <img src={imgAPI.mobile[30]} alt="app" />
                 <div className={classes.widget}>
                   <img src={imgAPI.mobile[20]} alt="app" />
                 </div>
               </div>
               <div className={classes.item}>
-                <img src={imgAPI.mobile[13]} alt="app" />
+                <img src={imgAPI.mobile[31]} alt="app" />
                 <div className={classes.widget}>
                   <img src={imgAPI.mobile[16]} alt="app" />
                 </div>

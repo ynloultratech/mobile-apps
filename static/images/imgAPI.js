@@ -54,6 +54,13 @@ const imgAPI = {
     '/static/images/mobile/customize.png',
     '/static/images/mobile/sample-site-code.png',
     '/static/images/mobile/mobile_banner_qr.png',
+    '/static/images/mobile/widget_bg1.png',
+    '/static/images/mobile/widget_bg2.png',
+    '/static/images/mobile/widget_bg3.png',
+    '/static/images/mobile/widget_bg4.png',
+    '/static/images/mobile/widget_bg5.png',
+    '/static/images/mobile/widget_bg6.png',
+    '/static/images/mobile/widget_bg7.png',
   ],
   egift: [
     '/static/images/egift/amazon.png',
