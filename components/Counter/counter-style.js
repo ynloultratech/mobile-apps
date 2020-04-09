@@ -7,7 +7,7 @@ const counterStyles = makeStyles(theme => ({
       width: '100px',
       margin: theme.spacing(0, 2.3),
       [theme.breakpoints.down('md')]: {
-        margin: 0
+        margin: '20px 5px 0 5px'
       }
     }
   },
