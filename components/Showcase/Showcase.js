@@ -111,25 +111,25 @@ function Showcase(props) {
               <div className={classes.item}>
                 <img src={imgAPI.mobile[7]} alt="app" />
                 <div className={classes.widget}>
-                  <img src={imgAPI.mobile[14]} alt="app" />
+                  <img src={imgAPI.mobile[17]} alt="app" />
                 </div>
               </div>
               <div className={classes.item}>
                 <img src={imgAPI.mobile[8]} alt="app" />
                 <div className={classes.widget}>
-                  <img src={imgAPI.mobile[15]} alt="app" />
+                  <img src={imgAPI.mobile[14]} alt="app" />
                 </div>
               </div>
               <div className={classes.item}>
                 <img src={imgAPI.mobile[9]} alt="app" />
                 <div className={classes.widget}>
-                  <img src={imgAPI.mobile[16]} alt="app" />
+                  <img src={imgAPI.mobile[15]} alt="app" />
                 </div>
               </div>
               <div className={classes.item}>
                 <img src={imgAPI.mobile[10]} alt="app" />
                 <div className={classes.widget}>
-                  <img src={imgAPI.mobile[17]} alt="app" />
+                  <img src={imgAPI.mobile[19]} alt="app" />
                 </div>
               </div>
               <div className={classes.item}>
@@ -141,13 +141,13 @@ function Showcase(props) {
               <div className={classes.item}>
                 <img src={imgAPI.mobile[12]} alt="app" />
                 <div className={classes.widget}>
-                  <img src={imgAPI.mobile[19]} alt="app" />
+                  <img src={imgAPI.mobile[20]} alt="app" />
                 </div>
               </div>
               <div className={classes.item}>
                 <img src={imgAPI.mobile[13]} alt="app" />
                 <div className={classes.widget}>
-                  <img src={imgAPI.mobile[20]} alt="app" />
+                  <img src={imgAPI.mobile[16]} alt="app" />
                 </div>
               </div>
             </Carousel>
