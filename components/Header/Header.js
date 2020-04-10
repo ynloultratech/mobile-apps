@@ -52,7 +52,6 @@ function Header(props) {
   };
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
-    console.log();
   }, []);
   const classes = useStyles();
   const theme = useTheme();

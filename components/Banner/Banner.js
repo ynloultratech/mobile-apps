@@ -16,7 +16,7 @@ import useStyles from './banner-style';
 function Banner(props) {
   const classes = useStyles();
   const text = useText();
-  const { t } = props;
+  const { t, merchantType } = props;
 
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up('lg'));
@@ -41,12 +41,14 @@ function Banner(props) {
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
-    window.PaynUpRefillBar({
-      element: document.getElementById('refill-bar'),
-      store: 21232,
-      primaryColor: '#ED3237',
-      secondaryColor: '#ED3237',
-    });
+    if (window.location.search !== '?type=agent') {
+      window.PaynUpRefillBar({
+        element: document.getElementById('refill-bar'),
+        store: 21232,
+        primaryColor: '#ED3237',
+        secondaryColor: '#ED3237',
+      });
+    }
   }, []);
 
   return (

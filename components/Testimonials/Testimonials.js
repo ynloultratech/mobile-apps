@@ -68,7 +68,7 @@ const testiContent = [
 ];
 
 function Testimonials(props) {
-  const classes = useStyles();
+  const classes = useStyles(props);
   const { t } = props;
 
   const sliderText = useRef(null);

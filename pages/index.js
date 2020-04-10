@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import Head from 'next/head';
 import Hidden from '@material-ui/core/Hidden';
@@ -87,6 +87,18 @@ function Landing(props) {
     </div>
   );
 
+  const [merchantType, setMerchantType] = useState(null);
+  useEffect(() => {
+    switch (window.location.search) {
+      case '?type=agent':
+        setMerchantType('agent');
+        break;
+      case '?type=dealer':
+        setMerchantType('dealer');
+        break
+    }
+  }, []);
+
   return (
     <React.Fragment>
       <Head>
@@ -104,19 +116,23 @@ function Landing(props) {
         />
         <main className={classes.containerWrap}>
           <section id="home">
-            <Banner />
+            <Banner merchantType={merchantType} />
           </section>
           <section id="counter">
             <Counter />
           </section>
+          {merchantType !== 'agent' &&
           <section id="showcase">
             <Showcase />
           </section>
+          }
+          {merchantType !== 'dealer' &&
           <section id="feature" className={classes.spaceTop}>
             <Feature />
           </section>
+          }
           <section id="testimonials">
-            <Testimonials />
+            <Testimonials merchantType={merchantType} />
           </section>
           <section className={classes.spaceTopShort}>
             <CompanyLogo />
