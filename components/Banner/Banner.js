@@ -12,11 +12,14 @@ import imgAPI from '~/static/images/imgAPI';
 import { withTranslation } from '~/i18n';
 import { useText } from '~/theme/common';
 import useStyles from './banner-style';
+import QRCode from 'qrcode.react';
+import { useRouter } from 'next/router';
 
 function Banner(props) {
-  const classes = useStyles();
+  const router = useRouter();
+  const classes = useStyles(props);
   const text = useText();
-  const { t, merchantType } = props;
+  const { t } = props;
 
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up('lg'));
@@ -39,9 +42,10 @@ function Banner(props) {
     }
   };
 
+  const [url, setUrl] = useState('');
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
-    if (window.location.search !== '?type=agent') {
+    if (router.query.type !== 'agent') {
       window.PaynUpRefillBar({
         element: document.getElementById('refill-bar'),
         store: 21232,
@@ -49,6 +53,7 @@ function Banner(props) {
         secondaryColor: '#ED3237',
       });
     }
+    setUrl(window.location.href);
   }, []);
 
   return (
@@ -96,7 +101,12 @@ function Banner(props) {
           <Grid item md={5} xs={12}>
             <div className={classes.decoration}>
               <div className={classes.phoneIllustration}>
-                <img src={isDesktop ? imgAPI.mobile[24] : imgAPI.mobile[0]} className={classes.phone} alt="illustration" />
+                {isDesktop &&
+                <div className={classes.qrCode}>
+                  <QRCode value={url} renderAs="svg" bgColor="rgba(0,0,0,0)" fgColor="#ffffff" size={170} alt="qr code" />
+                </div>
+                }
+                <img src={imgAPI.mobile[0]} className={classes.phone} alt="illustration" />
               </div>
             </div>
           </Grid>

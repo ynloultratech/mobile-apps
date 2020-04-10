@@ -16,6 +16,7 @@ import FooterWithDeco from '../components/Footer/FooterWithDeco';
 import PageNav from '../components/PageNav';
 import Notification from '../components/Notification';
 import brand from '../static/text/brand';
+import { useRouter } from 'next/router';
 
 const PWAPrompt = dynamic(() => import('react-ios-pwa-prompt'), {
   ssr: false
@@ -77,6 +78,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 function Landing(props) {
+  const router = useRouter();
   const classes = useStyles();
   const { onToggleDark, onToggleDir } = props;
 
@@ -87,17 +89,7 @@ function Landing(props) {
     </div>
   );
 
-  const [merchantType, setMerchantType] = useState(null);
-  useEffect(() => {
-    switch (window.location.search) {
-      case '?type=agent':
-        setMerchantType('agent');
-        break;
-      case '?type=dealer':
-        setMerchantType('dealer');
-        break
-    }
-  }, []);
+  const merchantType = router.query.type;
 
   return (
     <React.Fragment>

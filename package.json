@@ -41,6 +41,7 @@
 		"next-pwa": "^2.3.3",
 		"pre-commit": "^1.2.2",
 		"prop-types": "^15.7.2",
+		"qrcode.react": "^1.0.0",
 		"react": "16.8.6",
 		"react-anchor-link-smooth-scroll": "^1.0.12",
 		"react-animated-slider": "^1.1.4",

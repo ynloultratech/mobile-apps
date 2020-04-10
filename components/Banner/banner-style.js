@@ -93,11 +93,17 @@ const bannerStyles = makeStyles(theme => ({
       fontWeight: 500,
       color: 'rgba(0, 0, 0, 0.54)',
       lineHeight: '28px',
-      margin: '25px 0px 32px 0px',
+      margin: props => props.merchantType === 'agent' ? '-20px 0px 32px 0px' : '25px 0px 32px 0px',
       [theme.breakpoints.down('xs')]: {
         textAlign: 'center'
       },
     },
+  },
+  qrCode: {
+    position: 'absolute',
+    top: '200px',
+    right: '8px',
+    zIndex: 1,
   },
   btnArea: {
     textAlign: 'center',
