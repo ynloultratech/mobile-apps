@@ -45,7 +45,7 @@ function Banner(props) {
   const [url, setUrl] = useState('');
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
-    if (router.query.type !== 'agent') {
+    if (window.location.search !== '?type=agent') {
       window.PaynUpRefillBar({
         element: document.getElementById('refill-bar'),
         store: 21232,
