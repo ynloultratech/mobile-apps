@@ -212,7 +212,7 @@ function Landing(props) {
 Landing.getInitialProps = async (ctx) => {
   return {
     host: ctx.req.headers.host,
-    storeId: ctx.query.storeId,
+    storeId: ctx.query.storeId || ctx.req.headers.host.split('.')[0].split('//')[1],
     namespacesRequired: ['common', 'mobile-landing'],
     initialMerchantInfo: {
       type: null,
