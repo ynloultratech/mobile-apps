@@ -58,7 +58,7 @@ MobileMenu.propTypes = {
   toggleDrawer: PropTypes.func.isRequired,
   open: PropTypes.bool.isRequired,
   t: PropTypes.func.isRequired,
-  merchantType: PropTypes.string,
+  merchantInfo: PropTypes.object,
 };
 
 export default withTranslation(['mobile-landing'])(MobileMenu);

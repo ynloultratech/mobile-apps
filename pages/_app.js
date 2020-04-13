@@ -9,6 +9,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import Loading from 'react-loading-bar';
 import { appWithTranslation, i18n } from '../i18n';
 import appTheme from '../theme/appTheme';
+import withData from '../lib/apollo';
 /* import css vendors */
 import '../node_modules/react-loading-bar/dist/index.css';
 import '../node_modules/animate.css/animate.css';
@@ -17,16 +18,11 @@ import '../vendors/page-transition.css';
 import '../vendors/slick/slick.css';
 import '../vendors/slick/slick-theme.css';
 
-let themeType = 'light';
-if (typeof Storage !== 'undefined') { // eslint-disable-line
-  themeType = localStorage.getItem('luxiTheme') || 'light';
-}
-
 class MyApp extends App {
   state = {
     loading: false,
     theme: {
-      ...appTheme('paynup', themeType),
+      ...appTheme('paynup', 'light'),
       direction: i18n.language === 'ar' ? 'rtl' : 'ltr'
     }
   };
@@ -51,6 +47,22 @@ class MyApp extends App {
       jssStyles.parentNode.removeChild(jssStyles);
     }
   }
+
+  loadTheme = (primaryColor, secondaryColor) => {
+    this.setState({
+      theme: {
+        ...appTheme('paynup', 'light'),
+        palette: {
+          primary: {
+            main: primaryColor,
+          },
+          secondary: {
+            main: secondaryColor,
+          },
+        }
+      }
+    });
+  };
 
   toggleDarkTheme = () => {
     const { theme } = this.state;
@@ -99,6 +111,7 @@ class MyApp extends App {
                   {...pageProps}
                   onToggleDark={this.toggleDarkTheme}
                   onToggleDir={this.toggleDirection}
+                  onLoadTheme={this.loadTheme}
                   key={router.route}
                 />
               </PageTransition>
@@ -110,4 +123,4 @@ class MyApp extends App {
   }
 }
 
-export default appWithTranslation(MyApp);
+export default withData(appWithTranslation(MyApp));

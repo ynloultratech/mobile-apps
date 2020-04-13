@@ -14,7 +14,6 @@ import AnchorLink from 'react-anchor-link-smooth-scroll';
 import Scrollspy from 'react-scrollspy';
 import MobileMenu from './MobileMenu';
 import logo from '~/static/images/mobile-logo.png';
-import logoLarge from '~/static/images/mobile-logo-large.png';
 import { withTranslation } from '~/i18n';
 import linkRouter from '~/static/text/link';
 import '~/vendors/hamburger-menu.css';
@@ -54,20 +53,19 @@ function Header(props) {
   const classes = useStyles();
   const theme = useTheme();
   const {
-    onToggleDark,
-    onToggleDir,
     invert,
-    t
+    t,
+    merchantInfo,
   } = props;
   const isDesktop = useMediaQuery(theme.breakpoints.up('lg'));
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
   const isExtraSmallMobile = useMediaQuery(theme.breakpoints.down('xs'));
 
   const menuList = [createData(navMenu[0], '#' + navMenu[0], 70)];
-  if (props.merchantType !== 'dealer') {
+  if (merchantInfo.type !== 'dealer') {
     menuList.push(createData(navMenu[1], '#' + navMenu[1], 90));
   }
-  menuList.push(createData(navMenu[2], '#' + navMenu[2], props.merchantType === 'dealer' ? -100 : -400));
+  menuList.push(createData(navMenu[2], '#' + navMenu[2], merchantInfo.type === 'dealer' ? -100 : -400));
 
   const [openDrawer, setOpenDrawer] = useState(false);
   const handleOpenDrawer = () => {
@@ -103,12 +101,12 @@ function Header(props) {
                 {invert ? (
                   <NextLink href={linkRouter.mobile.home}>
                     <a>
-                      <img src={fixed ? logo : logoLarge} alt="logo" />
+                      <img src={fixed ? logo : merchantInfo.logo} alt="logo" />
                     </a>
                   </NextLink>
                 ) : (
                   <AnchorLink href="#home">
-                    <img src={fixed ? logo : logoLarge} alt="logo" />
+                    <img src={fixed ? logo : merchantInfo.logo} alt="logo" />
                   </AnchorLink>
                 )}
               </div>
@@ -139,15 +137,21 @@ function Header(props) {
               {!invert && (
                 <Hidden xsDown>
                   <Fragment>
+                    {merchantInfo.twitterLink &&
                     <IconButton aria-label="twitter" className={classes.socialBtn} size="small" component={Link} href="https://twitter.com/paynup" target="_blank" rel="noopener noreferrer">
                       <i className="ion-social-twitter" />
                     </IconButton>
+                    }
+                    {merchantInfo.facebookLink &&
                     <IconButton aria-label="facebook" className={classes.socialBtn} size="small" component={Link} href="https://www.facebook.com/paynup/" target="_blank" rel="noopener noreferrer">
                       <i className="ion-social-facebook" />
                     </IconButton>
+                    }
+                    {merchantInfo.instagramLink &&
                     <IconButton aria-label="instagram" className={classes.socialBtn} size="small" component={Link} href="https://www.instagram.com/paynup/" target="_blank" rel="noopener noreferrer">
                       <i className="ion-social-instagram" />
                     </IconButton>
+                    }
                   </Fragment>
                 </Hidden>
               )}
@@ -174,7 +178,7 @@ Header.propTypes = {
   onToggleDir: PropTypes.func.isRequired,
   invert: PropTypes.bool,
   t: PropTypes.func.isRequired,
-  merchantType: PropTypes.string,
+  merchantInfo: PropTypes.object,
 };
 
 Header.defaultProps = {

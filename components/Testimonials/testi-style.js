@@ -7,7 +7,7 @@ const testiStyles = makeStyles(theme => ({
   root: {
     background: theme.palette.type === 'dark' ? darken(theme.palette.primary.light, 0.6) : lighten(theme.palette.primary.light, 0.8),
     minHeight: 400,
-    paddingTop: props => props.merchantType !== 'dealer' ? theme.spacing(60) : theme.spacing(22),
+    paddingTop: props => props.merchantInfo.type !== 'dealer' ? theme.spacing(60) : theme.spacing(22),
     [theme.breakpoints.up('xl')]: {
       paddingTop: theme.spacing(30),
     }

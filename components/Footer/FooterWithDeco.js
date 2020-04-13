@@ -35,14 +35,15 @@ function FooterWithDeco(props) {
           </Link>
         </div>
       </div>
-      <Footer toggleDir={toggleDir} />
+      <Footer toggleDir={toggleDir} merchantInfo={props.merchantInfo} />
     </div>
   );
 }
 
 FooterWithDeco.propTypes = {
   t: PropTypes.func.isRequired,
-  toggleDir: PropTypes.func.isRequired
+  toggleDir: PropTypes.func.isRequired,
+  merchantInfo: PropTypes.object,
 };
 
 export default withTranslation(['mobile-landing'])(FooterWithDeco);

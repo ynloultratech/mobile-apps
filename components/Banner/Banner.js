@@ -13,13 +13,11 @@ import { withTranslation } from '~/i18n';
 import { useText } from '~/theme/common';
 import useStyles from './banner-style';
 import QRCode from 'qrcode.react';
-import { useRouter } from 'next/router';
 
 function Banner(props) {
-  const router = useRouter();
   const classes = useStyles(props);
   const text = useText();
-  const { t } = props;
+  const { merchantInfo } = props;
 
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up('lg'));
@@ -42,18 +40,8 @@ function Banner(props) {
     }
   };
 
-  const [url, setUrl] = useState('');
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
-    if (window.location.search !== '?type=agent') {
-      window.PaynUpRefillBar({
-        element: document.getElementById('refill-bar'),
-        store: 21232,
-        primaryColor: '#ED3237',
-        secondaryColor: '#ED3237',
-      });
-    }
-    setUrl(window.location.href);
   }, []);
 
   return (
@@ -74,15 +62,15 @@ function Banner(props) {
           <Grid item md={7} xs={12}>
             <div className={classes.text}>
               <Typography variant="h3" className={text.title}>
-                {t('mobile-landing:banner_title')}
+                {merchantInfo.headlineText1}
                 &nbsp;
                 <strong>
-                  {t('mobile-landing:banner_titlestrong')}
+                  {merchantInfo.headlineText2}
                 </strong>
               </Typography>
               <div id="refill-bar" className={classes.refill_bar} />
               <Typography variant="h5" className={text.subtitle}>
-                {t('mobile-landing:banner_desc')}
+                {merchantInfo.headlineText3}
               </Typography>
               <div className={classes.btnArea}>
                 <Link href="/">
@@ -103,7 +91,7 @@ function Banner(props) {
               <div className={classes.phoneIllustration}>
                 {isDesktop &&
                 <div className={classes.qrCode}>
-                  <QRCode value={url} renderAs="svg" bgColor="rgba(0,0,0,0)" fgColor="#ffffff" size={170} alt="qr code" />
+                  <QRCode value={props.host} renderAs="svg" bgColor="rgba(0,0,0,0)" fgColor="#ffffff" size={170} alt="qr code" />
                 </div>
                 }
                 <img src={imgAPI.mobile[0]} className={classes.phone} alt="illustration" />
@@ -118,7 +106,8 @@ function Banner(props) {
 
 Banner.propTypes = {
   t: PropTypes.func.isRequired,
-  merchantType: PropTypes.string,
+  host: PropTypes.string,
+  merchantInfo: PropTypes.object,
 };
 
 export default withTranslation(['mobile-landing'])(Banner);

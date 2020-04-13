@@ -17,6 +17,34 @@ import PageNav from '../components/PageNav';
 import Notification from '../components/Notification';
 import brand from '../static/text/brand';
 import { useRouter } from 'next/router';
+import { gql } from 'apollo-boost';
+import { useQuery } from '@apollo/react-hooks';
+
+const GET_MERCHANT_INFO = gql`
+    query merchantInfo($number: String!) {
+        merchantInfo(identifier: $number) {
+            __typename
+            name
+            logo
+            number
+            email
+            phone
+            socialLinks{
+                twitter
+                facebook
+                instagram
+            }
+            siteSettings {
+                __typename
+                primaryColor
+                secondaryColor
+                headlineText1
+                headlineText2
+                headlineText3
+            }
+        }
+    }
+`;
 
 const PWAPrompt = dynamic(() => import('react-ios-pwa-prompt'), {
   ssr: false
@@ -78,9 +106,61 @@ const useStyles = makeStyles(theme => ({
 }));
 
 function Landing(props) {
-  const router = useRouter();
   const classes = useStyles();
-  const { onToggleDark, onToggleDir } = props;
+  const { onToggleDark, onToggleDir, onLoadTheme } = props;
+  const router = useRouter();
+  const [merchantInfo] = useState({
+    type: router.query.type,
+    number: 21232,
+    phone: '+1 800 236 6554',
+    primaryColor: '#ED3237',
+    secondaryColor: '#ED3237',
+    headlineText1: 'Up to 20% OFF!',
+    headlineText2: 'Wireless Refills, eGift Cards, Game codes...',
+    headlineText3: 'Worldwide top-up to over 500 networks across 140 countries.',
+    twitterLink: 'https://twitter.com/paynup',
+    facebookLink: 'https://www.facebook.com/paynup/',
+    instagramLink: 'https://www.instagram.com/paynup/',
+    logo: '/static/images/mobile-logo-large.png',
+  })
+
+  if (props.storeId) {
+    const { error, data } = useQuery(GET_MERCHANT_INFO, {
+      variables: { number: props.storeId },
+      notifyOnNetworkStatusChange: true
+    });
+    if (data && data.merchantInfo) {
+      merchantInfo.number = data.merchantInfo.number;
+      if (data.merchantInfo.phone) {
+        merchantInfo.phone = '+' + data.merchantInfo.phone.replace(/-/g, ' ');
+      }
+      if (data.merchantInfo.logo) {
+        merchantInfo.logo = data.merchantInfo.logo;
+      }
+      merchantInfo.primaryColor = data.merchantInfo.siteSettings.primaryColor;
+      merchantInfo.secondaryColor = data.merchantInfo.siteSettings.secondaryColor;
+      merchantInfo.headlineText1 = data.merchantInfo.siteSettings.headlineText1;
+      merchantInfo.headlineText2 = data.merchantInfo.siteSettings.headlineText2;
+      merchantInfo.headlineText3 = data.merchantInfo.siteSettings.headlineText3;
+      merchantInfo.twitterLink = data.merchantInfo.socialLinks.twitter;
+      merchantInfo.facebookLink = data.merchantInfo.socialLinks.facebook;
+      merchantInfo.instagramLink = data.merchantInfo.socialLinks.instagram;
+      if (data.merchantInfo.__typename === 'DealerMerchantInfo') {
+        merchantInfo.type = 'dealer';
+      } else if (data.merchantInfo.__typename === 'AgentMerchantInfo') {
+        merchantInfo.type = 'agent';
+      }
+
+      if (merchantInfo.type !== 'agent') {
+        window.PaynUpRefillBar({
+          element: document.getElementById('refill-bar'),
+          store: merchantInfo.number,
+          primaryColor: merchantInfo.primaryColor,
+          secondaryColor: merchantInfo.secondaryColor,
+        });
+      }
+    }
+  }
 
   const promptBody = (
     <div className={classes.promptBody}>
@@ -88,8 +168,6 @@ function Landing(props) {
       This website has app functionality. Add it to your home screen to use it in fullscreen and while offline.
     </div>
   );
-
-  const merchantType = router.query.type;
 
   return (
     <React.Fragment>
@@ -105,33 +183,33 @@ function Landing(props) {
         <Header
           onToggleDark={onToggleDark}
           onToggleDir={onToggleDir}
-          merchantType={merchantType}
+          merchantInfo={merchantInfo}
         />
         <main className={classes.containerWrap}>
           <section id="home">
-            <Banner merchantType={merchantType} />
+            <Banner merchantInfo={merchantInfo} host={props.host} />
           </section>
           <section id="counter">
             <Counter />
           </section>
-          {merchantType !== 'agent' &&
+          {merchantInfo.type !== 'agent' &&
           <section id="showcase">
             <Showcase />
           </section>
           }
-          {merchantType !== 'dealer' &&
+          {merchantInfo.type !== 'dealer' &&
           <section id="feature" className={classes.spaceTop}>
             <Feature />
           </section>
           }
           <section id="testimonials">
-            <Testimonials merchantType={merchantType} />
+            <Testimonials merchantInfo={merchantInfo} />
           </section>
           <section className={classes.spaceTopShort}>
             <CompanyLogo />
           </section>
         </main>
-        <FooterWithDeco toggleDir={onToggleDir} />
+        <FooterWithDeco toggleDir={onToggleDir} merchantInfo={merchantInfo} />
         <Hidden mdDown>
           <PageNav />
         </Hidden>
@@ -145,9 +223,13 @@ function Landing(props) {
   );
 }
 
-Landing.getInitialProps = async () => ({
-  namespacesRequired: ['common', 'mobile-landing'],
-});
+Landing.getInitialProps = async (ctx) => {
+  return {
+    host: ctx.req.headers.host,
+    storeId: ctx.query.storeId,
+    namespacesRequired: ['common', 'mobile-landing'],
+  };
+};
 
 Landing.propTypes = {
   onToggleDark: PropTypes.func.isRequired,
