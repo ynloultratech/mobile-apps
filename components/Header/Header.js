@@ -12,11 +12,9 @@ import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { useTheme } from '@material-ui/core/styles';
 import AnchorLink from 'react-anchor-link-smooth-scroll';
 import Scrollspy from 'react-scrollspy';
-import Settings from './Settings';
 import MobileMenu from './MobileMenu';
 import logo from '~/static/images/mobile-logo.png';
 import logoLarge from '~/static/images/mobile-logo-large.png';
-import brand from '~/static/text/brand';
 import { withTranslation } from '~/i18n';
 import linkRouter from '~/static/text/link';
 import '~/vendors/hamburger-menu.css';
@@ -64,18 +62,20 @@ function Header(props) {
   const isDesktop = useMediaQuery(theme.breakpoints.up('lg'));
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
   const isExtraSmallMobile = useMediaQuery(theme.breakpoints.down('xs'));
-  const [menuList] = useState([
-    createData(navMenu[0], '#' + navMenu[0]),
-    createData(navMenu[1], '#' + navMenu[1]),
-    createData(navMenu[2], '#' + navMenu[2], -40),
-  ]);
+
+  const menuList = [createData(navMenu[0], '#' + navMenu[0], 70)];
+  if (props.merchantType !== 'dealer') {
+    menuList.push(createData(navMenu[1], '#' + navMenu[1], 90));
+  }
+  menuList.push(createData(navMenu[2], '#' + navMenu[2], props.merchantType === 'dealer' ? -100 : -400));
+
   const [openDrawer, setOpenDrawer] = useState(false);
   const handleOpenDrawer = () => {
     setOpenDrawer(!openDrawer);
   };
   return (
     <Fragment>
-      { isMobile && (<MobileMenu open={openDrawer} toggleDrawer={handleOpenDrawer} />) }
+      { isMobile && (<MobileMenu open={openDrawer} toggleDrawer={handleOpenDrawer} menuList={menuList} />) }
       <AppBar
         component="header"
         position="relative"
@@ -174,6 +174,7 @@ Header.propTypes = {
   onToggleDir: PropTypes.func.isRequired,
   invert: PropTypes.bool,
   t: PropTypes.func.isRequired,
+  merchantType: PropTypes.string,
 };
 
 Header.defaultProps = {

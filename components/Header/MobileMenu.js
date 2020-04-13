@@ -5,10 +5,8 @@ import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
-import linkRouter from '~/static/text/link';
 import { withTranslation } from '~/i18n';
 import useStyles from './header-style';
-import navMenu from './menu';
 
 function MobileMenu(props) {
   const classes = useStyles();
@@ -22,17 +20,17 @@ function MobileMenu(props) {
     >
       <div className={clsx(classes.menu, open && classes.menuOpen)}>
         <List component="nav">
-          {navMenu.map((item, index) => (
+          {props.menuList.map((item, index) => (
             <ListItem
               button
               component="a"
-              href={`#${item}`}
-              key={item}
+              href={`#${item.name}`}
+              key={item.name}
               index={index.toString()}
               style={{ animationDuration: index * 0.15 + 's' }}
             >
               <ListItemText
-                primary={t('mobile-landing:header_' + item)}
+                primary={t('mobile-landing:header_' + item.name)}
                 className={classes.menuList}
               />
             </ListItem>
@@ -59,7 +57,8 @@ function MobileMenu(props) {
 MobileMenu.propTypes = {
   toggleDrawer: PropTypes.func.isRequired,
   open: PropTypes.bool.isRequired,
-  t: PropTypes.func.isRequired
+  t: PropTypes.func.isRequired,
+  merchantType: PropTypes.string,
 };
 
 export default withTranslation(['mobile-landing'])(MobileMenu);

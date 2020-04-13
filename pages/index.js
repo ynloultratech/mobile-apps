@@ -105,6 +105,7 @@ function Landing(props) {
         <Header
           onToggleDark={onToggleDark}
           onToggleDir={onToggleDir}
+          merchantType={merchantType}
         />
         <main className={classes.containerWrap}>
           <section id="home">

@@ -151,7 +151,7 @@ function Feature(props) {
               </Grid>
             </Grid>
           </div>
-          <div className={clsx(classes.item, classes.last)}>
+          <div className={clsx(classes.item, classes.last)} id="showcase">
             <TitleSecondary align="center" text={t('mobile-landing:feature_title3')} />
             <Typography align="center" component="p" className={text.subtitle2}>
               {t('mobile-landing:feature_desc3')}

@@ -117,7 +117,8 @@ function Banner(props) {
 }
 
 Banner.propTypes = {
-  t: PropTypes.func.isRequired
+  t: PropTypes.func.isRequired,
+  merchantType: PropTypes.string,
 };
 
 export default withTranslation(['mobile-landing'])(Banner);

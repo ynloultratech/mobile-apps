@@ -162,7 +162,8 @@ function Testimonials(props) {
 }
 
 Testimonials.propTypes = {
-  t: PropTypes.func.isRequired
+  t: PropTypes.func.isRequired,
+  merchantType: PropTypes.string,
 };
 
 export default withTranslation(['mobile-landing'])(Testimonials);
