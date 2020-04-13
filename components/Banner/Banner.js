@@ -62,15 +62,15 @@ function Banner(props) {
           <Grid item md={7} xs={12}>
             <div className={classes.text}>
               <Typography variant="h3" className={text.title}>
-                {merchantInfo.headlineText1}
+                {merchantInfo && merchantInfo.headlineText1}
                 &nbsp;
                 <strong>
-                  {merchantInfo.headlineText2}
+                  {merchantInfo && merchantInfo.headlineText2}
                 </strong>
               </Typography>
               <div id="refill-bar" className={classes.refill_bar} />
               <Typography variant="h5" className={text.subtitle}>
-                {merchantInfo.headlineText3}
+                {merchantInfo && merchantInfo.headlineText3}
               </Typography>
               <div className={classes.btnArea}>
                 <Link href="/">
