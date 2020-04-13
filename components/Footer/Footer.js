@@ -50,6 +50,8 @@ function Footer(props) {
     }
   }
 
+  const phone = merchantInfo && merchantInfo.phone || '+1 800 236 6554';
+
   return (
     <Container
       maxWidth="lg"
@@ -66,7 +68,7 @@ function Footer(props) {
         <Grid item xs={12} md={6}>
           <div className={classes.footerLinks}>
             <Typography variant="h6" className={classes.title} color="textPrimary" gutterBottom>
-              {merchantInfo.phone}
+              {phone}
             </Typography>
             <ul>
               <li>
@@ -86,18 +88,18 @@ function Footer(props) {
         <Grid item xs={12} md={3}>
           <div className={classes.footerLinks}>
             <div className={classes.socmed}>
-              {merchantInfo.twitterLink &&
-              <IconButton aria-label="FB" className={classes.margin} size="small" component={Link} href="https://twitter.com/paynup" target="_blank" rel="noopener noreferrer">
+              {merchantInfo && merchantInfo.twitterLink &&
+              <IconButton aria-label="FB" className={classes.margin} size="small" component={Link} href={merchantInfo.twitterLink} target="_blank" rel="noopener noreferrer">
                 <i className="ion-social-twitter" />
               </IconButton>
               }
-              {merchantInfo.facebookLink &&
-              <IconButton aria-label="TW" className={classes.margin} size="small" component={Link} href="https://www.facebook.com/paynup/" target="_blank" rel="noopener noreferrer">
+              {merchantInfo && merchantInfo.facebookLink &&
+              <IconButton aria-label="TW" className={classes.margin} size="small" component={Link} href={merchantInfo.facebookLink} target="_blank" rel="noopener noreferrer">
                 <i className="ion-social-facebook" />
               </IconButton>
               }
-              {merchantInfo.instagramLink &&
-              <IconButton aria-label="IG" className={classes.margin} size="small" component={Link} href="https://www.instagram.com/paynup/" target="_blank" rel="noopener noreferrer">
+              {merchantInfo && merchantInfo.instagramLink &&
+              <IconButton aria-label="IG" className={classes.margin} size="small" component={Link} href={merchantInfo.instagramLink} target="_blank" rel="noopener noreferrer">
                 <i className="ion-social-instagram" />
               </IconButton>
               }

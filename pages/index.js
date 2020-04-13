@@ -108,21 +108,7 @@ const useStyles = makeStyles(theme => ({
 function Landing(props) {
   const classes = useStyles();
   const { onToggleDark, onToggleDir, onLoadTheme } = props;
-  const router = useRouter();
-  const [merchantInfo] = useState({
-    type: router.query.type,
-    number: 21232,
-    phone: '+1 800 236 6554',
-    primaryColor: '#ED3237',
-    secondaryColor: '#ED3237',
-    headlineText1: 'Up to 20% OFF!',
-    headlineText2: 'Wireless Refills, eGift Cards, Game codes...',
-    headlineText3: 'Worldwide top-up to over 500 networks across 140 countries.',
-    twitterLink: 'https://twitter.com/paynup',
-    facebookLink: 'https://www.facebook.com/paynup/',
-    instagramLink: 'https://www.instagram.com/paynup/',
-    logo: '/static/images/mobile-logo-large.png',
-  })
+  const merchantInfo = props.initialMerchantInfo;
 
   if (props.storeId) {
     const { error, data } = useQuery(GET_MERCHANT_INFO, {
@@ -151,7 +137,7 @@ function Landing(props) {
         merchantInfo.type = 'agent';
       }
 
-      if (merchantInfo.type !== 'agent') {
+      if (!merchantInfo || merchantInfo.type !== 'agent') {
         window.PaynUpRefillBar({
           element: document.getElementById('refill-bar'),
           store: merchantInfo.number,
@@ -192,12 +178,12 @@ function Landing(props) {
           <section id="counter">
             <Counter />
           </section>
-          {merchantInfo.type !== 'agent' &&
+          {!merchantInfo || merchantInfo.type !== 'agent' &&
           <section id="showcase">
             <Showcase />
           </section>
           }
-          {merchantInfo.type !== 'dealer' &&
+          {!merchantInfo || merchantInfo.type !== 'dealer' &&
           <section id="feature" className={classes.spaceTop}>
             <Feature />
           </section>
@@ -228,6 +214,20 @@ Landing.getInitialProps = async (ctx) => {
     host: ctx.req.headers.host,
     storeId: ctx.query.storeId,
     namespacesRequired: ['common', 'mobile-landing'],
+    initialMerchantInfo: {
+      type: null,
+      number: 21232,
+      phone: null,
+      primaryColor: '#ED3237',
+      secondaryColor: '#ED3237',
+      headlineText1: 'Up to 20% OFF!',
+      headlineText2: 'Wireless Refills, eGift Cards, Game codes...',
+      headlineText3: 'Worldwide top-up to over 500 networks across 140 countries.',
+      twitterLink: 'https://twitter.com/paynup',
+      facebookLink: 'https://www.facebook.com/paynup/',
+      instagramLink: 'https://www.instagram.com/paynup/',
+      logo: null,
+    }
   };
 };
 
