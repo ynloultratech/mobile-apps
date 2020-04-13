@@ -50,7 +50,7 @@ function Footer(props) {
     }
   }
 
-  const phone = merchantInfo && merchantInfo.phone || '+1 800 236 6554';
+  const phone = merchantInfo && merchantInfo.phone ? merchantInfo.phone : '+1 800 236 6554';
 
   return (
     <Container

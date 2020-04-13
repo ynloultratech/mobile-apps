@@ -52,6 +52,8 @@ function Banner(props) {
     }
   }, []);
 
+  const url = props.host ? props.host : 'https://site.paynup.com';
+
   return (
     <div className={classes.root} ref={elem}>
       <div className={classes.background}>
@@ -99,7 +101,7 @@ function Banner(props) {
               <div className={classes.phoneIllustration}>
                 {isDesktop &&
                 <div className={classes.qrCode}>
-                  <QRCode value={props.host} renderAs="svg" bgColor="rgba(0,0,0,0)" fgColor="#ffffff" size={170} alt="qr code" />
+                  <QRCode value={url} renderAs="svg" bgColor="rgba(0,0,0,0)" fgColor="#ffffff" size={170} alt="qr code" />
                 </div>
                 }
                 <img src={imgAPI.mobile[0]} className={classes.phone} alt="illustration" />

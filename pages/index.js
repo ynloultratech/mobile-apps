@@ -110,12 +110,12 @@ function Landing(props) {
   const merchantInfo = props.initialMerchantInfo;
 
   if (props.storeId) {
-    const { error, data } = useQuery(GET_MERCHANT_INFO, {
+    const { loading, error, data } = useQuery(GET_MERCHANT_INFO, {
       variables: { number: props.storeId },
       notifyOnNetworkStatusChange: true
     });
 
-    if (data && data.merchantInfo) {
+    if (!loading && data && data.merchantInfo) {
       merchantInfo.number = data.merchantInfo.number;
       if (data.merchantInfo.phone) {
         merchantInfo.phone = '+' + data.merchantInfo.phone.replace(/-/g, ' ');
