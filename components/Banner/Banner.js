@@ -42,6 +42,14 @@ function Banner(props) {
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
+    if (!merchantInfo || merchantInfo.type !== 'agent') {
+      window.PaynUpRefillBar({
+        element: document.getElementById('refill-bar'),
+        store: merchantInfo.number,
+        primaryColor: merchantInfo.primaryColor,
+        secondaryColor: merchantInfo.secondaryColor,
+      });
+    }
   }, []);
 
   return (

@@ -115,6 +115,7 @@ function Landing(props) {
       variables: { number: props.storeId },
       notifyOnNetworkStatusChange: true
     });
+
     if (data && data.merchantInfo) {
       merchantInfo.number = data.merchantInfo.number;
       if (data.merchantInfo.phone) {
@@ -135,15 +136,6 @@ function Landing(props) {
         merchantInfo.type = 'dealer';
       } else if (data.merchantInfo.__typename === 'AgentMerchantInfo') {
         merchantInfo.type = 'agent';
-      }
-
-      if (!merchantInfo || merchantInfo.type !== 'agent') {
-        window.PaynUpRefillBar({
-          element: document.getElementById('refill-bar'),
-          store: merchantInfo.number,
-          primaryColor: merchantInfo.primaryColor,
-          secondaryColor: merchantInfo.secondaryColor,
-        });
       }
     }
   }
@@ -212,7 +204,7 @@ function Landing(props) {
 Landing.getInitialProps = async (ctx) => {
   return {
     host: ctx.req.headers.host,
-    storeId: ctx.query.storeId || ctx.req.headers.host.split('.')[0].split('//')[1],
+    storeId: ctx.query.storeId || (ctx.req.headers.host && ctx.req.headers.host.split('.')[0].split('//')[1]),
     namespacesRequired: ['common', 'mobile-landing'],
     initialMerchantInfo: {
       type: null,
