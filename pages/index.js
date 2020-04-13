@@ -16,7 +16,6 @@ import FooterWithDeco from '../components/Footer/FooterWithDeco';
 import PageNav from '../components/PageNav';
 import Notification from '../components/Notification';
 import brand from '../static/text/brand';
-import { useRouter } from 'next/router';
 import { gql } from 'apollo-boost';
 import { useQuery } from '@apollo/react-hooks';
 
@@ -204,7 +203,7 @@ function Landing(props) {
 Landing.getInitialProps = async (ctx) => {
   return {
     host: ctx.req.headers.host,
-    storeId: ctx.query.storeId || (ctx.req.headers.host && ctx.req.headers.host.split('.')[0].split('//')[1]),
+    storeId: ctx.query.storeId,
     namespacesRequired: ['common', 'mobile-landing'],
     initialMerchantInfo: {
       type: null,
