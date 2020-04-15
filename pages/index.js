@@ -108,11 +108,12 @@ const useStyles = makeStyles(theme => ({
 function Landing(props) {
   const router = useRouter()
   const classes = useStyles();
-  const { onToggleDark, onToggleDir, onLoadTheme, merchantId } = props;
+  const { onToggleDark, onToggleDir, onLoadTheme } = props;
   const merchantInfo = {};
+  const merchantId = router.query.storeId || router.pathname.substr(1);
 
   const { loading, error, data } = useQuery(GET_MERCHANT_INFO, {
-    variables: { number: router.query.storeId || merchantId || 21232 },
+    variables: { number: merchantId || 21232 },
     notifyOnNetworkStatusChange: true,
   });
 
@@ -123,7 +124,7 @@ function Landing(props) {
       preloader.remove();
     }
 
-    if ((router.query.storeId || merchantId) && data && data.merchantInfo) {
+    if (merchantId && data && data.merchantInfo) {
       merchantInfo.number = data.merchantInfo.number;
       if (data.merchantInfo.phone) {
         merchantInfo.phone = '+' + data.merchantInfo.phone.replace(/-/g, ' ');
