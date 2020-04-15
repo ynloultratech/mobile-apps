@@ -112,6 +112,8 @@ function Landing(props) {
   const merchantInfo = {};
   const merchantId = router.query.storeId || router.route.substr(1);
 
+  console.log(router.route, router.pathname);
+
   const { loading, error, data } = useQuery(GET_MERCHANT_INFO, {
     variables: { number: merchantId || 21232 },
     notifyOnNetworkStatusChange: true,
