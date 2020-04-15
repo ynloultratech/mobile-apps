@@ -65,7 +65,6 @@ const headerStyles = makeStyles(theme => ({
         },
         '& img': {
           marginBottom: 0,
-          width: 48,
           height: 48,
         }
       },
@@ -121,9 +120,9 @@ const headerStyles = makeStyles(theme => ({
       margin: '0 auto',
       transition: 'all 0.3s ease-out',
       marginBottom: theme.spacing(),
-      width: 280,
+      height: 75,
       [theme.breakpoints.down('xs')]: {
-        width: 200,
+        height: 53,
         marginLeft: theme.spacing(2),
       }
     }

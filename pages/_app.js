@@ -1,5 +1,5 @@
 import React from 'react';
-import App, { Container } from 'next/app';
+import App from 'next/app';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import { create } from 'jss';
 import { PageTransition } from 'next-page-transitions';
@@ -30,12 +30,6 @@ class MyApp extends App {
   componentDidMount() {
     // Set layout direction
     document.dir = i18n.language === 'ar' ? 'rtl' : 'ltr';
-
-    // Remove preloader
-    const preloader = document.getElementById('preloader');
-    if (preloader !== null || undefined) {
-      preloader.remove();
-    }
 
     // Remove loading bar
     this.setState({ loading: true });
@@ -96,29 +90,27 @@ class MyApp extends App {
     const { Component, pageProps, router } = this.props; // eslint-disable-line
     const jss = create({ plugins: [...jssPreset().plugins, rtl()] });
     return (
-      <Container>
-        <StylesProvider jss={jss}>
-          <MuiThemeProvider theme={muiTheme}>
-            <CssBaseline />
-            <Loading
-              show={loading}
-              color={theme.palette.primary.main}
-              showSpinner={false}
-            />
-            <div id="main-wrap">
-              <PageTransition timeout={300} classNames="page-fadeUp-transition">
-                <Component
-                  {...pageProps}
-                  onToggleDark={this.toggleDarkTheme}
-                  onToggleDir={this.toggleDirection}
-                  onLoadTheme={this.loadTheme}
-                  key={router.route}
-                />
-              </PageTransition>
-            </div>
-          </MuiThemeProvider>
-        </StylesProvider>
-      </Container>
+      <StylesProvider jss={jss}>
+        <MuiThemeProvider theme={muiTheme}>
+          <CssBaseline />
+          <Loading
+            show={loading}
+            color={theme.palette.primary.main}
+            showSpinner={false}
+          />
+          <div id="main-wrap">
+            <PageTransition timeout={300} classNames="page-fadeUp-transition">
+              <Component
+                {...pageProps}
+                onToggleDark={this.toggleDarkTheme}
+                onToggleDir={this.toggleDirection}
+                onLoadTheme={this.loadTheme}
+                key={router.route}
+              />
+            </PageTransition>
+          </div>
+        </MuiThemeProvider>
+      </StylesProvider>
     );
   }
 }

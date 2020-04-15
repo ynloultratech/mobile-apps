@@ -18,6 +18,7 @@ import Notification from '../components/Notification';
 import brand from '../static/text/brand';
 import { gql } from 'apollo-boost';
 import { useQuery } from '@apollo/react-hooks';
+import { useRouter } from 'next/router'
 
 const GET_MERCHANT_INFO = gql`
     query merchantInfo($number: String!) {
@@ -105,17 +106,24 @@ const useStyles = makeStyles(theme => ({
 }));
 
 function Landing(props) {
+  const router = useRouter()
   const classes = useStyles();
-  const { onToggleDark, onToggleDir, onLoadTheme } = props;
-  const merchantInfo = props.initialMerchantInfo;
+  const { onToggleDark, onToggleDir, onLoadTheme, merchantId } = props;
+  const merchantInfo = {};
 
-  if (props.storeId) {
-    const { loading, error, data } = useQuery(GET_MERCHANT_INFO, {
-      variables: { number: props.storeId },
-      notifyOnNetworkStatusChange: true
-    });
+  const { loading, error, data } = useQuery(GET_MERCHANT_INFO, {
+    variables: { number: router.query.storeId || merchantId || 21232 },
+    notifyOnNetworkStatusChange: true,
+  });
 
-    if (!loading && data && data.merchantInfo) {
+  if (!loading && typeof document !== 'undefined') {
+    // Remove preloader
+    const preloader = document.getElementById('preloader');
+    if (preloader !== null || undefined) {
+      preloader.remove();
+    }
+
+    if ((router.query.storeId || merchantId) && data && data.merchantInfo) {
       merchantInfo.number = data.merchantInfo.number;
       if (data.merchantInfo.phone) {
         merchantInfo.phone = '+' + data.merchantInfo.phone.replace(/-/g, ' ');
@@ -135,6 +143,15 @@ function Landing(props) {
         merchantInfo.type = 'dealer';
       } else if (data.merchantInfo.__typename === 'AgentMerchantInfo') {
         merchantInfo.type = 'agent';
+      }
+
+      if (typeof window !== 'undefined' && merchantInfo.type === 'dealer') {
+        window.PaynUpRefillBar({
+          element: document.getElementById('refill-bar'),
+          store: merchantInfo ? merchantInfo.number : 21232,
+          primaryColor: merchantInfo ? merchantInfo.primaryColor : '#ED3237',
+          secondaryColor: merchantInfo ? merchantInfo.secondaryColor : '#ED3237',
+        })
       }
     }
   }
@@ -200,31 +217,14 @@ function Landing(props) {
   );
 }
 
-Landing.getInitialProps = async (ctx) => {
-  return {
-    host: ctx.req.headers.host,
-    storeId: ctx.query.storeId,
-    namespacesRequired: ['common', 'mobile-landing'],
-    initialMerchantInfo: {
-      type: null,
-      number: 21232,
-      phone: null,
-      primaryColor: '#ED3237',
-      secondaryColor: '#ED3237',
-      headlineText1: 'Up to 20% OFF!',
-      headlineText2: 'Wireless Refills, eGift Cards, Game codes...',
-      headlineText3: 'Worldwide top-up to over 500 networks across 140 countries.',
-      twitterLink: 'https://twitter.com/paynup',
-      facebookLink: 'https://www.facebook.com/paynup/',
-      instagramLink: 'https://www.instagram.com/paynup/',
-      logo: null,
-    }
-  };
-};
+Landing.getInitialProps = async () => ({
+  namespacesRequired: ['common', 'mobile-landing'],
+})
 
 Landing.propTypes = {
   onToggleDark: PropTypes.func.isRequired,
   onToggleDir: PropTypes.func.isRequired,
+  merchantId: PropTypes.string,
 };
 
 

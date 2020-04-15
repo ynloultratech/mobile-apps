@@ -13,7 +13,6 @@ import { useTheme } from '@material-ui/core/styles';
 import AnchorLink from 'react-anchor-link-smooth-scroll';
 import Scrollspy from 'react-scrollspy';
 import MobileMenu from './MobileMenu';
-import logo from '~/static/images/mobile-logo.png';
 import { withTranslation } from '~/i18n';
 import linkRouter from '~/static/text/link';
 import '~/vendors/hamburger-menu.css';
@@ -30,10 +29,6 @@ function createData(name, url, offset) {
     offset,
   };
 }
-
-const LinkBtn = React.forwardRef(function LinkBtn(props, ref) { // eslint-disable-line
-  return <AnchorLink to={props.to} {...props} innerRef={ref} />; // eslint-disable-line
-});
 
 function Header(props) {
   const [fixed, setFixed] = useState(false);
@@ -65,14 +60,18 @@ function Header(props) {
   if (merchantInfo && merchantInfo.type !== 'dealer') {
     menuList.push(createData(navMenu[1], '#' + navMenu[1], 90));
   }
-  menuList.push(createData(navMenu[2], '#' + navMenu[2], merchantInfo && merchantInfo.type === 'dealer' ? -100 : -400));
+  menuList.push(createData(navMenu[2], '#' + navMenu[2], merchantInfo && merchantInfo.type !== 'agent' ? -100 : -400));
 
   const [openDrawer, setOpenDrawer] = useState(false);
   const handleOpenDrawer = () => {
     setOpenDrawer(!openDrawer);
   };
 
+  const logo = merchantInfo && merchantInfo.logo || '/static/images/mobile-logo.png';
   const logoLarge = merchantInfo && merchantInfo.logo || '/static/images/mobile-logo-large.png';
+  const twitterLink = merchantInfo && merchantInfo.twitterLink ? merchantInfo.twitterLink : 'https://twitter.com/paynup';
+  const facebookLink = merchantInfo && merchantInfo.facebookLink ? merchantInfo.facebookLink : 'https://www.facebook.com/paynup/';
+  const instagramLink = merchantInfo && merchantInfo.instagramLink ? merchantInfo.instagramLink : 'https://www.instagram.com/paynup/';
 
   return (
     <Fragment>
@@ -140,21 +139,15 @@ function Header(props) {
               {!invert && (
                 <Hidden xsDown>
                   <Fragment>
-                    {merchantInfo && merchantInfo.twitterLink &&
-                    <IconButton aria-label="twitter" className={classes.socialBtn} size="small" component={Link} href={merchantInfo.twitterLink} target="_blank" rel="noopener noreferrer">
+                    <IconButton aria-label="twitter" className={classes.socialBtn} size="small" component={Link} href={twitterLink} target="_blank" rel="noopener noreferrer">
                       <i className="ion-social-twitter" />
                     </IconButton>
-                    }
-                    {merchantInfo && merchantInfo.facebookLink &&
-                    <IconButton aria-label="facebook" className={classes.socialBtn} size="small" component={Link} href={merchantInfo.facebookLink} target="_blank" rel="noopener noreferrer">
+                    <IconButton aria-label="facebook" className={classes.socialBtn} size="small" component={Link} href={facebookLink} target="_blank" rel="noopener noreferrer">
                       <i className="ion-social-facebook" />
                     </IconButton>
-                    }
-                    {merchantInfo && merchantInfo.instagramLink &&
-                    <IconButton aria-label="instagram" className={classes.socialBtn} size="small" component={Link} href={merchantInfo.instagramLink} target="_blank" rel="noopener noreferrer">
+                    <IconButton aria-label="instagram" className={classes.socialBtn} size="small" component={Link} href={instagramLink} target="_blank" rel="noopener noreferrer">
                       <i className="ion-social-instagram" />
                     </IconButton>
-                    }
                   </Fragment>
                 </Hidden>
               )}

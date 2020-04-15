@@ -17,7 +17,7 @@ import QRCode from 'qrcode.react';
 function Banner(props) {
   const classes = useStyles(props);
   const text = useText();
-  const { merchantInfo } = props;
+  const { merchantInfo, host } = props;
 
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up('lg'));
@@ -42,17 +42,7 @@ function Banner(props) {
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
-    if (!merchantInfo || merchantInfo.type !== 'agent') {
-      window.PaynUpRefillBar({
-        element: document.getElementById('refill-bar'),
-        store: merchantInfo.number,
-        primaryColor: merchantInfo.primaryColor,
-        secondaryColor: merchantInfo.secondaryColor,
-      });
-    }
   }, []);
-
-  const url = props.host ? props.host : 'https://site.paynup.com';
 
   return (
     <div className={classes.root} ref={elem}>
@@ -72,15 +62,15 @@ function Banner(props) {
           <Grid item md={7} xs={12}>
             <div className={classes.text}>
               <Typography variant="h3" className={text.title}>
-                {merchantInfo && merchantInfo.headlineText1}
+                {merchantInfo.headlineText1 || 'Up to 20% OFF!'}
                 &nbsp;
                 <strong>
-                  {merchantInfo && merchantInfo.headlineText2}
+                  {merchantInfo.headlineText2 || 'Wireless Refills, eGift Cards, Game codes...'}
                 </strong>
               </Typography>
               <div id="refill-bar" className={classes.refill_bar} />
               <Typography variant="h5" className={text.subtitle}>
-                {merchantInfo && merchantInfo.headlineText3}
+                {merchantInfo.headlineText3 || 'Worldwide top-up to over 500 networks across 140 countries.'}
               </Typography>
               <div className={classes.btnArea}>
                 <Link href="/">
@@ -101,7 +91,7 @@ function Banner(props) {
               <div className={classes.phoneIllustration}>
                 {isDesktop &&
                 <div className={classes.qrCode}>
-                  <QRCode value={url} renderAs="svg" bgColor="rgba(0,0,0,0)" fgColor="#ffffff" size={170} alt="qr code" />
+                  <QRCode value={host || 'https://site.paynup.com'} renderAs="svg" bgColor="rgba(0,0,0,0)" fgColor="#ffffff" size={170} alt="qr code" />
                 </div>
                 }
                 <img src={imgAPI.mobile[0]} className={classes.phone} alt="illustration" />
