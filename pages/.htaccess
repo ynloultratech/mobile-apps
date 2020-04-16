@@ -1,0 +1,15 @@
+Options -MultiViews
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^ index.html [QSA,L]
+<IfModule mod_headers.c>
+    Header set Access-Control-Allow-Origin "*"
+</IfModule>
+<IfModule mod_expires.c>
+  <FilesMatch "\.(jpe?g|svg|ico|png|gif|woff2?|ttf|eot|mp3)$">
+      Header set Cache-Control "max-age=2592000, public"
+  </FilesMatch>
+  <FilesMatch "\.(js|css)$">
+      Header set Cache-Control "max-age=20, public, must-revalidate"
+  </FilesMatch>
+</IfModule>

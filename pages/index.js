@@ -108,11 +108,11 @@ const useStyles = makeStyles(theme => ({
 function Landing(props) {
   const router = useRouter()
   const classes = useStyles();
-  const { onToggleDark, onToggleDir, onLoadTheme } = props;
+  const { onToggleDark, onToggleDir } = props;
   const merchantInfo = {};
-  const merchantId = router.query.storeId || router.route.substr(1);
+  const merchantId = router.query.storeId || router.asPath.substr(1);
 
-  console.log(router.route, router.pathname);
+  console.log(router.asPath);
 
   const { loading, error, data } = useQuery(GET_MERCHANT_INFO, {
     variables: { number: merchantId || 21232 },

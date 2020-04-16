@@ -42,22 +42,6 @@ class MyApp extends App {
     }
   }
 
-  loadTheme = (primaryColor, secondaryColor) => {
-    this.setState({
-      theme: {
-        ...appTheme('paynup', 'light'),
-        palette: {
-          primary: {
-            main: primaryColor,
-          },
-          secondary: {
-            main: secondaryColor,
-          },
-        }
-      }
-    });
-  };
-
   toggleDarkTheme = () => {
     const { theme } = this.state;
     const newPaletteType = theme.palette.type === 'light' ? 'dark' : 'light';
@@ -104,7 +88,6 @@ class MyApp extends App {
                 {...pageProps}
                 onToggleDark={this.toggleDarkTheme}
                 onToggleDir={this.toggleDirection}
-                onLoadTheme={this.loadTheme}
                 key={router.route}
               />
             </PageTransition>
