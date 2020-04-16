@@ -220,7 +220,7 @@ function Landing(props) {
 }
 
 Landing.getInitialProps = async (ctx) => ({
-  host: ctx.req.headers.host,
+  host: ctx.req ? 'https://site.paynup.com' : window.location.href,
   namespacesRequired: ['common', 'mobile-landing'],
 })
 
