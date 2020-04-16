@@ -220,7 +220,7 @@ function Landing(props) {
 }
 
 Landing.getInitialProps = async (ctx) => ({
-  host: ctx.req.host,
+  host: ctx.req.headers.host,
   namespacesRequired: ['common', 'mobile-landing'],
 })
 
