@@ -17,7 +17,7 @@ import QRCode from 'qrcode.react';
 function Banner(props) {
   const classes = useStyles(props);
   const text = useText();
-  const { merchantInfo, host } = props;
+  const { merchantInfo } = props;
 
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up('lg'));
@@ -40,8 +40,10 @@ function Banner(props) {
     }
   };
 
+  const [url, setUrl] = useState(null)
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
+    setUrl(window.location.href);
   }, []);
 
   return (
@@ -89,9 +91,9 @@ function Banner(props) {
           <Grid item md={5} xs={12}>
             <div className={classes.decoration}>
               <div className={classes.phoneIllustration}>
-                {isDesktop && host &&
+                {isDesktop && url &&
                 <div className={classes.qrCode}>
-                  <QRCode value={host} renderAs="svg" bgColor="rgba(0,0,0,0)" fgColor="#ffffff" size={170} alt="qr code" />
+                  <QRCode value={url} renderAs="svg" bgColor="rgba(0,0,0,0)" fgColor="#ffffff" size={170} alt="qr code" />
                 </div>
                 }
                 <img src={imgAPI.mobile[0]} className={classes.phone} alt="illustration" />
@@ -106,7 +108,6 @@ function Banner(props) {
 
 Banner.propTypes = {
   t: PropTypes.func.isRequired,
-  host: PropTypes.string,
   merchantInfo: PropTypes.object,
 };
 

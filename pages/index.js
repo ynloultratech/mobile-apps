@@ -108,10 +108,10 @@ const useStyles = makeStyles(theme => ({
 function Landing(props) {
   const router = useRouter()
   const classes = useStyles();
-  const { onToggleDark, onToggleDir, host } = props;
+  const { onToggleDark, onToggleDir } = props;
   const merchantInfo = {};
   const merchantId = router.query.storeId || router.asPath.substr(1);
-  console.log(host);
+
   const { loading, error, data } = useQuery(GET_MERCHANT_INFO, {
     variables: { number: merchantId || 21232 },
     notifyOnNetworkStatusChange: true,
@@ -183,7 +183,7 @@ function Landing(props) {
         />
         <main className={classes.containerWrap}>
           <section id="home">
-            <Banner merchantInfo={merchantInfo} host={host} />
+            <Banner merchantInfo={merchantInfo} />
           </section>
           <section id="counter">
             <Counter />
@@ -219,8 +219,7 @@ function Landing(props) {
   );
 }
 
-Landing.getInitialProps = async (ctx) => ({
-  host: ctx.req ? 'https://site.paynup.com' : window.location.href,
+Landing.getInitialProps = async () => ({
   namespacesRequired: ['common', 'mobile-landing'],
 })
 
