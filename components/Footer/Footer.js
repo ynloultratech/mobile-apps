@@ -12,6 +12,7 @@ import brand from '~/static/text/brand';
 import logo from '~/static/images/mobile-logo-gray.png';
 import { i18n } from '~/i18n';
 import useStyles from './footer-style';
+import { useRouter } from 'next/router';
 
 function Copyright() {
   return (
@@ -23,6 +24,10 @@ function Copyright() {
 }
 
 function Footer(props) {
+  const router = useRouter();
+  const asPath = router.asPath.substr(1);
+  const merchantId = router.query.storeId || (asPath !== 'en' ? asPath : null);
+
   const classes = useStyles();
   const theme = useTheme();
   const { invert, merchantInfo } = props;
@@ -50,10 +55,10 @@ function Footer(props) {
     }
   }
 
-  const phone = merchantInfo && merchantInfo.phone ? merchantInfo.phone : '+1 800 236 6554';
-  const twitterLink = merchantInfo && merchantInfo.twitterLink ? merchantInfo.twitterLink : 'https://twitter.com/paynup';
-  const facebookLink = merchantInfo && merchantInfo.facebookLink ? merchantInfo.facebookLink : 'https://www.facebook.com/paynup/';
-  const instagramLink = merchantInfo && merchantInfo.instagramLink ? merchantInfo.instagramLink : 'https://www.instagram.com/paynup/';
+  const phone = merchantId ? (merchantInfo && merchantInfo.phone || null) : '+1 800 236 6554';
+  const twitterLink = merchantId ? (merchantInfo && merchantInfo.twitterLink || null) : 'https://twitter.com/paynup';
+  const facebookLink = merchantId ? (merchantInfo && merchantInfo.facebookLink || null) : 'https://www.facebook.com/paynup/';
+  const instagramLink = merchantId ? (merchantInfo && merchantInfo.instagramLink || null) : 'https://www.instagram.com/paynup/';
 
   return (
     <Container
@@ -91,15 +96,21 @@ function Footer(props) {
         <Grid item xs={12} md={3}>
           <div className={classes.footerLinks}>
             <div className={classes.socmed}>
+              {twitterLink &&
               <IconButton aria-label="FB" className={classes.margin} size="small" component={Link} href={twitterLink} target="_blank" rel="noopener noreferrer">
                 <i className="ion-social-twitter" />
               </IconButton>
+              }
+              {facebookLink &&
               <IconButton aria-label="TW" className={classes.margin} size="small" component={Link} href={facebookLink} target="_blank" rel="noopener noreferrer">
-                <i className="ion-social-facebook" />
+              <i className="ion-social-facebook" />
               </IconButton>
+              }
+              {instagramLink &&
               <IconButton aria-label="IG" className={classes.margin} size="small" component={Link} href={instagramLink} target="_blank" rel="noopener noreferrer">
                 <i className="ion-social-instagram" />
               </IconButton>
+              }
             </div>
             <ul>
               <li>

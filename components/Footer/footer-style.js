@@ -90,6 +90,7 @@ const footerStyles = makeStyles(theme => ({
     lineHeight: 1.1,
     marginBottom: '25px',
     fontWeight: theme.typography.fontWeightBold,
+    minHeight: '50px',
     [theme.breakpoints.down('sm')]: {
       fontSize: 32,
     }
@@ -113,6 +114,7 @@ const footerStyles = makeStyles(theme => ({
     display: 'flex',
     justifyContent: 'center',
     marginBottom: '23px',
+    minHeight: '52px',
     [theme.breakpoints.down('sm')]: {
       marginTop: theme.spacing(4)
     },

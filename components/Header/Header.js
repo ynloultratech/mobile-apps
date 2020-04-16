@@ -17,7 +17,6 @@ import { withTranslation } from '~/i18n';
 import linkRouter from '~/static/text/link';
 import '~/vendors/hamburger-menu.css';
 import useStyles from './header-style';
-import navMenu from './menu';
 import { useRouter } from 'next/router';
 
 let counter = 0;
@@ -33,7 +32,8 @@ function createData(name, url, offset) {
 
 function Header(props) {
   const router = useRouter();
-  const merchantId = router.query.storeId || router.asPath.substr(1);
+  const asPath = router.asPath.substr(1);
+  const merchantId = router.query.storeId || (asPath !== 'en' ? asPath : null);
 
   const [fixed, setFixed] = useState(false);
   let flagFixed = false;
@@ -60,11 +60,40 @@ function Header(props) {
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
   const isExtraSmallMobile = useMediaQuery(theme.breakpoints.down('xs'));
 
-  const menuList = [createData(navMenu[0], '#' + navMenu[0], 70)];
-  if (merchantInfo && merchantInfo.type !== 'dealer') {
-    menuList.push(createData(navMenu[1], '#' + navMenu[1], 90));
+  let navMenu = [];
+  let menuList = [];
+  if (merchantId && merchantInfo && merchantInfo.type === 'agent') {
+    navMenu = [
+      'feature',
+      'showcase',
+      'testimonials'
+    ];
+    menuList = [
+      createData(navMenu[0], '#' + navMenu[0], 90),
+      createData(navMenu[1], '#' + navMenu[1], 70),
+      createData('access', '#' + navMenu[2], -400),
+    ];
+  } else if (merchantId && merchantInfo && merchantInfo.type === 'dealer') {
+    navMenu = [
+      'showcase',
+      'testimonials'
+    ];
+    menuList = [
+      createData(navMenu[0], '#' + navMenu[0], 70),
+      createData(navMenu[1], '#' + navMenu[1], -100),
+    ];
+  } else {
+    navMenu = [
+      'showcase',
+      'feature',
+      'testimonials'
+    ];
+    menuList = [
+      createData(navMenu[0], '#' + navMenu[0], 70),
+      createData(navMenu[1], '#' + navMenu[1], 90),
+      createData(navMenu[2], '#' + navMenu[2], -400),
+    ];
   }
-  menuList.push(createData(navMenu[2], '#' + navMenu[2], merchantInfo && merchantInfo.type !== 'agent' ? -100 : -400));
 
   const [openDrawer, setOpenDrawer] = useState(false);
   const handleOpenDrawer = () => {
@@ -73,9 +102,9 @@ function Header(props) {
 
   const logo = merchantId ? (merchantInfo && merchantInfo.logo || null) : '/static/images/mobile-logo.png';
   const logoLarge = merchantId ? (merchantInfo && merchantInfo.logo || null) : '/static/images/mobile-logo-large.png';
-  const twitterLink = merchantInfo && merchantInfo.twitterLink ? merchantInfo.twitterLink : 'https://twitter.com/paynup';
-  const facebookLink = merchantInfo && merchantInfo.facebookLink ? merchantInfo.facebookLink : 'https://www.facebook.com/paynup/';
-  const instagramLink = merchantInfo && merchantInfo.instagramLink ? merchantInfo.instagramLink : 'https://www.instagram.com/paynup/';
+  const twitterLink = merchantId ? (merchantInfo ? merchantInfo.twitterLink : null) : 'https://twitter.com/paynup';
+  const facebookLink = merchantId ? (merchantInfo && merchantInfo.facebookLink || null) : 'https://www.facebook.com/paynup/';
+  const instagramLink = merchantId ? (merchantInfo && merchantInfo.instagramLink || null) : 'https://www.instagram.com/paynup/';
 
   return (
     <Fragment>
@@ -143,15 +172,21 @@ function Header(props) {
               {!invert && (
                 <Hidden xsDown>
                   <Fragment>
+                    {twitterLink &&
                     <IconButton aria-label="twitter" className={classes.socialBtn} size="small" component={Link} href={twitterLink} target="_blank" rel="noopener noreferrer">
                       <i className="ion-social-twitter" />
                     </IconButton>
+                    }
+                    {facebookLink &&
                     <IconButton aria-label="facebook" className={classes.socialBtn} size="small" component={Link} href={facebookLink} target="_blank" rel="noopener noreferrer">
                       <i className="ion-social-facebook" />
                     </IconButton>
+                    }
+                    {instagramLink &&
                     <IconButton aria-label="instagram" className={classes.socialBtn} size="small" component={Link} href={instagramLink} target="_blank" rel="noopener noreferrer">
                       <i className="ion-social-instagram" />
                     </IconButton>
+                    }
                   </Fragment>
                 </Hidden>
               )}

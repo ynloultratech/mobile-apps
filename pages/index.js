@@ -110,7 +110,8 @@ function Landing(props) {
   const classes = useStyles();
   const { onToggleDark, onToggleDir, onLoadTheme } = props;
   const merchantInfo = {};
-  const merchantId = router.query.storeId || router.asPath.substr(1);
+  const asPath = router.asPath.substr(1);
+  const merchantId = router.query.storeId || (asPath !== 'en' ? asPath : null);
 
   const { loading, error, data } = useQuery(GET_MERCHANT_INFO, {
     variables: { number: merchantId || 21232 },
