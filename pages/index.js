@@ -119,12 +119,6 @@ function Landing(props) {
   });
 
   if (!loading && typeof document !== 'undefined') {
-    // Remove preloader
-    const preloader = document.getElementById('preloader');
-    if (preloader !== null || undefined) {
-      preloader.remove();
-    }
-
     if (merchantId && data && data.merchantInfo) {
       merchantInfo.number = data.merchantInfo.number;
       if (data.merchantInfo.phone) {
@@ -156,6 +150,12 @@ function Landing(props) {
         })
       }
     }
+
+    // Remove preloader
+    const preloader = document.getElementById('preloader');
+    if (preloader !== null || undefined) {
+      preloader.remove();
+    }
   }
 
   const [loadingTheme, setLoadingTheme] = useState(true)
@@ -164,7 +164,7 @@ function Landing(props) {
       setLoadingTheme(false);
       onLoadTheme(merchantInfo.primaryColor, merchantInfo.secondaryColor);
     }
-  },)
+  })
 
   const promptBody = (
     <div className={classes.promptBody}>
