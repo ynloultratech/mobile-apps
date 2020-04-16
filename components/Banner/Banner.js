@@ -44,7 +44,6 @@ function Banner(props) {
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
     setUrl(window.location.href);
-    console.log(window.location.href);
   }, []);
 
   return (
