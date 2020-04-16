@@ -89,9 +89,9 @@ function Banner(props) {
           <Grid item md={5} xs={12}>
             <div className={classes.decoration}>
               <div className={classes.phoneIllustration}>
-                {isDesktop &&
+                {isDesktop && host &&
                 <div className={classes.qrCode}>
-                  <QRCode value={host || 'https://site.paynup.com'} renderAs="svg" bgColor="rgba(0,0,0,0)" fgColor="#ffffff" size={170} alt="qr code" />
+                  <QRCode value={host} renderAs="svg" bgColor="rgba(0,0,0,0)" fgColor="#ffffff" size={170} alt="qr code" />
                 </div>
                 }
                 <img src={imgAPI.mobile[0]} className={classes.phone} alt="illustration" />

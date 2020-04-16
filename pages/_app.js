@@ -24,7 +24,8 @@ class MyApp extends App {
     theme: {
       ...appTheme('paynup', 'light'),
       direction: i18n.language === 'ar' ? 'rtl' : 'ltr'
-    }
+    },
+    merchantInfo: {}
   };
 
   componentDidMount() {

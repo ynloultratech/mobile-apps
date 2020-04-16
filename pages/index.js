@@ -108,12 +108,10 @@ const useStyles = makeStyles(theme => ({
 function Landing(props) {
   const router = useRouter()
   const classes = useStyles();
-  const { onToggleDark, onToggleDir } = props;
+  const { onToggleDark, onToggleDir, host } = props;
   const merchantInfo = {};
   const merchantId = router.query.storeId || router.asPath.substr(1);
-
-  console.log(router.asPath);
-
+  console.log(host);
   const { loading, error, data } = useQuery(GET_MERCHANT_INFO, {
     variables: { number: merchantId || 21232 },
     notifyOnNetworkStatusChange: true,
@@ -185,7 +183,7 @@ function Landing(props) {
         />
         <main className={classes.containerWrap}>
           <section id="home">
-            <Banner merchantInfo={merchantInfo} host={props.host} />
+            <Banner merchantInfo={merchantInfo} host={host} />
           </section>
           <section id="counter">
             <Counter />
@@ -221,7 +219,8 @@ function Landing(props) {
   );
 }
 
-Landing.getInitialProps = async () => ({
+Landing.getInitialProps = async (ctx) => ({
+  host: ctx.req.host,
   namespacesRequired: ['common', 'mobile-landing'],
 })
 
