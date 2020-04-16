@@ -81,13 +81,13 @@ const featureStyles = makeStyles(theme => ({
     marginTop: theme.spacing(1),
     color: theme.palette.type === 'dark' ? theme.palette.primary.light : theme.palette.primary.main,
     textTransform: 'none',
-    border: 'solid hsla(358, 84%, 56%, 0.32) 1px'
+    border: `solid ${fade(theme.palette.primary.main, 0.32)} 1px`,
   },
   btnLink: {
     marginTop: theme.spacing(8),
     color: theme.palette.type === 'dark' ? theme.palette.primary.light : theme.palette.primary.main,
     textTransform: 'none',
-    border: 'solid hsla(358, 84%, 56%, 0.32) 1px',
+    border: `solid ${fade(theme.palette.primary.main, 0.32)} 1px`,
     '&:hover': {
       textDecoration: 'none',
     }

@@ -51,12 +51,12 @@ class MyApp extends App {
           primary: {
             light: `${lighten(primaryColor, 0.7)}`,
             main: `${primaryColor}`,
-            dark: `${darken(primaryColor, 0.7)}`
+            dark: `${darken(primaryColor, 0.7)}`,
           },
           secondary: {
-            light: `${lighten(secondaryColor, 0.5)}`,
-            main: `${darken(secondaryColor, 0.7)}`,
-            dark: `${darken(secondaryColor, 0.2)}`
+            light: `${lighten(primaryColor, 0.5)}`,
+            main: `${darken(primaryColor, 0.7)}`,
+            dark: `${darken(primaryColor, 0.2)}`,
           }
         }
       }
