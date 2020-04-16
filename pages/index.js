@@ -110,7 +110,7 @@ function Landing(props) {
   const classes = useStyles();
   const { onToggleDark, onToggleDir } = props;
   const merchantInfo = {};
-  const merchantId = router.query.storeId || router.asPath.substr(1);
+  const merchantId = router.query.storeId;
 
   console.log(router.asPath);
 
