@@ -108,7 +108,7 @@ const useStyles = makeStyles(theme => ({
 function Landing(props) {
   const router = useRouter()
   const classes = useStyles();
-  const { onToggleDark, onToggleDir } = props;
+  const { onToggleDark, onToggleDir, onLoadTheme } = props;
   const merchantInfo = {};
   const merchantId = router.query.storeId || router.asPath.substr(1);
 
@@ -157,6 +157,14 @@ function Landing(props) {
       }
     }
   }
+
+  const [loadingTheme, setLoadingTheme] = useState(true)
+  useEffect(() => {
+    if (loadingTheme && merchantInfo.primaryColor && merchantInfo.secondaryColor) {
+      setLoadingTheme(false);
+      onLoadTheme(merchantInfo.primaryColor, merchantInfo.secondaryColor);
+    }
+  },)
 
   const promptBody = (
     <div className={classes.promptBody}>
@@ -226,6 +234,7 @@ Landing.getInitialProps = async () => ({
 Landing.propTypes = {
   onToggleDark: PropTypes.func.isRequired,
   onToggleDir: PropTypes.func.isRequired,
+  onLoadTheme: PropTypes.func.isRequired,
   merchantId: PropTypes.string,
 };
 

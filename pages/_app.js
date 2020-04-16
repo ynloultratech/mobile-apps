@@ -1,5 +1,6 @@
 import React from 'react';
 import App from 'next/app';
+import { darken, lighten } from '@material-ui/core/styles/colorManipulator';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import { create } from 'jss';
 import { PageTransition } from 'next-page-transitions';
@@ -24,8 +25,7 @@ class MyApp extends App {
     theme: {
       ...appTheme('paynup', 'light'),
       direction: i18n.language === 'ar' ? 'rtl' : 'ltr'
-    },
-    merchantInfo: {}
+    }
   };
 
   componentDidMount() {
@@ -42,6 +42,26 @@ class MyApp extends App {
       jssStyles.parentNode.removeChild(jssStyles);
     }
   }
+
+  loadTheme = (primaryColor, secondaryColor) => {
+    this.setState({
+      theme: {
+        ...appTheme('paynup', 'light'),
+        palette: {
+          primary: {
+            light: `${lighten(primaryColor, 0.7)}`,
+            main: `${primaryColor}`,
+            dark: `${darken(primaryColor, 0.7)}`
+          },
+          secondary: {
+            light: `${lighten(secondaryColor, 0.5)}`,
+            main: `${darken(secondaryColor, 0.7)}`,
+            dark: `${darken(secondaryColor, 0.2)}`
+          }
+        }
+      }
+    });
+  };
 
   toggleDarkTheme = () => {
     const { theme } = this.state;
@@ -89,6 +109,7 @@ class MyApp extends App {
                 {...pageProps}
                 onToggleDark={this.toggleDarkTheme}
                 onToggleDir={this.toggleDirection}
+                onLoadTheme={this.loadTheme}
                 key={router.route}
               />
             </PageTransition>

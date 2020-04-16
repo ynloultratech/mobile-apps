@@ -1,3 +1,5 @@
+import { lighten, darken } from '@material-ui/core/styles/colorManipulator';
+
 module.exports = {
   oceanBlue: {
     palette: {
@@ -100,14 +102,14 @@ module.exports = {
   paynup: {
     palette: {
       primary: {
-        light: '#f7bcbe',
+        light: `${lighten('#ED3237', 0.7)}`,
         main: '#ED3237',
-        dark: '#373435'
+        dark: `${darken('#ED3237', 0.7)}`
       },
       secondary: {
-        light: '#e8c5c6',
-        main: '#373435',
-        dark: '#a22f30'
+        light: `${lighten('#ED3237', 0.5)}`,
+        main: `${darken('#ED3237', 0.7)}`,
+        dark: `${darken('#ED3237', 0.2)}`
       }
     }
   },
