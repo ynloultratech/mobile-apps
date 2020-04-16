@@ -18,6 +18,7 @@ import linkRouter from '~/static/text/link';
 import '~/vendors/hamburger-menu.css';
 import useStyles from './header-style';
 import navMenu from './menu';
+import { useRouter } from 'next/router';
 
 let counter = 0;
 function createData(name, url, offset) {
@@ -31,6 +32,9 @@ function createData(name, url, offset) {
 }
 
 function Header(props) {
+  const router = useRouter();
+  const merchantId = router.query.storeId || router.asPath.substr(1);
+
   const [fixed, setFixed] = useState(false);
   let flagFixed = false;
   const handleScroll = () => {
@@ -67,8 +71,8 @@ function Header(props) {
     setOpenDrawer(!openDrawer);
   };
 
-  const logo = merchantInfo && merchantInfo.logo || '/static/images/mobile-logo.png';
-  const logoLarge = merchantInfo && merchantInfo.logo || '/static/images/mobile-logo-large.png';
+  const logo = merchantId ? (merchantInfo && merchantInfo.logo || null) : '/static/images/mobile-logo.png';
+  const logoLarge = merchantId ? (merchantInfo && merchantInfo.logo || null) : '/static/images/mobile-logo-large.png';
   const twitterLink = merchantInfo && merchantInfo.twitterLink ? merchantInfo.twitterLink : 'https://twitter.com/paynup';
   const facebookLink = merchantInfo && merchantInfo.facebookLink ? merchantInfo.facebookLink : 'https://www.facebook.com/paynup/';
   const instagramLink = merchantInfo && merchantInfo.instagramLink ? merchantInfo.instagramLink : 'https://www.instagram.com/paynup/';

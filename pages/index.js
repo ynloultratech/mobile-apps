@@ -106,7 +106,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 function Landing(props) {
-  const router = useRouter()
+  const router = useRouter();
   const classes = useStyles();
   const { onToggleDark, onToggleDir, onLoadTheme } = props;
   const merchantInfo = {};
