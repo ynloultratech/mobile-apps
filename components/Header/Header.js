@@ -67,32 +67,34 @@ function Header(props) {
     navMenu = [
       'feature',
       'showcase',
-      'access'
+      'admin',
+      'post',
     ];
     menuList = [
       createData(navMenu[0], '#' + navMenu[0], 90),
       createData(navMenu[1], '#' + navMenu[1], 70),
-      createData('access', 'https://admin.paynup.com'),
+      createData('admin', 'https://admin.paynup.com'),
+      createData('pos', 'https://pos.paynup.com'),
     ];
   } else if (merchantId && merchantInfo && merchantInfo.type === 'dealer') {
     navMenu = [
-      'showcase',
-      'testimonials'
+      'showcase'
     ];
     menuList = [
       createData(navMenu[0], '#' + navMenu[0], 70),
-      createData(navMenu[1], '#' + navMenu[1], -100),
     ];
   } else {
     navMenu = [
       'showcase',
       'feature',
-      'testimonials'
+      'admin',
+      'post',
     ];
     menuList = [
       createData(navMenu[0], '#' + navMenu[0], 70),
       createData(navMenu[1], '#' + navMenu[1], 90),
-      createData(navMenu[2], '#' + navMenu[2], -400),
+      createData('admin', 'https://admin.paynup.com'),
+      createData('pos', 'https://pos.paynup.com'),
     ];
   }
 
