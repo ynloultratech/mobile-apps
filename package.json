@@ -30,6 +30,7 @@
 		"@zeit/next-css": "^1.0.1",
 		"animate.css": "^3.7.2",
 		"apollo-boost": "^0.4.7",
+		"apollo-cache-inmemory": "^1.6.5",
 		"babel-eslint": "^10.0.1",
 		"babel-plugin-root-import": "^6.4.1",
 		"clsx": "^1.0.4",
