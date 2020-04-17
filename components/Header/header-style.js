@@ -43,6 +43,12 @@ const headerStyles = makeStyles(theme => ({
       transform: 'none'
     }
   },
+  externalLink: {
+    color: 'rgba(0, 0, 0, 0.87)',
+    '&:hover': {
+      textDecoration: 'none',
+    }
+  },
   fixed: {},
   header: {
     position: 'fixed',

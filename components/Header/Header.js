@@ -68,7 +68,7 @@ function Header(props) {
       'feature',
       'showcase',
       'admin',
-      'post',
+      'pos',
     ];
     menuList = [
       createData(navMenu[0], '#' + navMenu[0], 90),
@@ -88,7 +88,7 @@ function Header(props) {
       'showcase',
       'feature',
       'admin',
-      'post',
+      'pos',
     ];
     menuList = [
       createData(navMenu[0], '#' + navMenu[0], 70),
@@ -160,7 +160,7 @@ function Header(props) {
                           {t('mobile-landing:header_' + item.name)}
                         </Button>
                       ) : (
-                        <Button component={Link} target="_blank" rel="noopener noreferrer" href={item.url}>
+                        <Button component={Link} target="_blank" rel="noopener noreferrer" href={item.url} className={classes.externalLink}>
                           {t('mobile-landing:header_' + item.name)}
                         </Button>
                       )}
