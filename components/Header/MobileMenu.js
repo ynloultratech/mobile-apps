@@ -21,19 +21,37 @@ function MobileMenu(props) {
       <div className={clsx(classes.menu, open && classes.menuOpen)}>
         <List component="nav">
           {props.menuList.map((item, index) => (
-            <ListItem
-              button
-              component="a"
-              href={`#${item.name}`}
-              key={item.name}
-              index={index.toString()}
-              style={{ animationDuration: index * 0.15 + 's' }}
-            >
-              <ListItemText
-                primary={t('mobile-landing:header_' + item.name)}
-                className={classes.menuList}
-              />
-            </ListItem>
+            item.isInternal ? (
+              <ListItem
+                button
+                component="a"
+                href={`#${item.name}`}
+                key={item.name}
+                index={index.toString()}
+                style={{ animationDuration: index * 0.15 + 's' }}
+              >
+                <ListItemText
+                  primary={t('mobile-landing:header_' + item.name)}
+                  className={classes.menuList}
+                />
+              </ListItem>
+            ) : (
+              <ListItem
+                button
+                component="a"
+                href={item.url}
+                key={item.name}
+                index={index.toString()}
+                style={{ animationDuration: index * 0.15 + 's' }}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <ListItemText
+                  primary={t('mobile-landing:header_' + item.name)}
+                  className={classes.menuList}
+                />
+              </ListItem>
+            )
           ))}
         </List>
       </div>
