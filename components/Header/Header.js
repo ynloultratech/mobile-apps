@@ -27,6 +27,7 @@ function createData(name, url, offset) {
     name,
     url,
     offset,
+    isInternal: url[0] === '#',
   };
 }
 
@@ -66,12 +67,12 @@ function Header(props) {
     navMenu = [
       'feature',
       'showcase',
-      'testimonials'
+      'access'
     ];
     menuList = [
       createData(navMenu[0], '#' + navMenu[0], 90),
       createData(navMenu[1], '#' + navMenu[1], 70),
-      createData('access', '#' + navMenu[2], -400),
+      createData('access', 'https://admin.paynup.com'),
     ];
   } else if (merchantId && merchantInfo && merchantInfo.type === 'dealer') {
     navMenu = [
@@ -152,14 +153,12 @@ function Header(props) {
                 >
                   {menuList.map(item => (
                     <li key={item.id.toString()}>
-                      {invert ? (
-                        // eslint-disable-next-line
-                        <Button offset={item.offset || 0} href={'/' + item.url}>
+                      {item.isInternal ? (
+                        <Button component={AnchorLink} offset={item.offset || 0} href={item.url}>
                           {t('mobile-landing:header_' + item.name)}
                         </Button>
                       ) : (
-                        // eslint-disable-next-line
-                        <Button component={AnchorLink} offset={item.offset || 0} href={item.url}>
+                        <Button component={Link} target="_blank" rel="noopener noreferrer" href={item.url}>
                           {t('mobile-landing:header_' + item.name)}
                         </Button>
                       )}
