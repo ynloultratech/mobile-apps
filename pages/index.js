@@ -42,6 +42,10 @@ const GET_MERCHANT_INFO = gql`
                 headlineText2
                 headlineText3
             }
+            ... on AgentMerchantInfo{
+                adminUrl
+                posUrl
+            }
         }
     }
 `;
@@ -136,6 +140,8 @@ function Landing(props) {
       merchantInfo.twitterLink = data.merchantInfo.socialLinks.twitter;
       merchantInfo.facebookLink = data.merchantInfo.socialLinks.facebook;
       merchantInfo.instagramLink = data.merchantInfo.socialLinks.instagram;
+      merchantInfo.adminUrl = data.merchantInfo.adminUrl;
+      merchantInfo.posUrl = data.merchantInfo.posUrl;
       if (data.merchantInfo.__typename === 'DealerMerchantInfo') {
         merchantInfo.type = 'dealer';
       } else if (data.merchantInfo.__typename === 'AgentMerchantInfo') {

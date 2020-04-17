@@ -73,8 +73,8 @@ function Header(props) {
     menuList = [
       createData(navMenu[0], '#' + navMenu[0], 90),
       createData(navMenu[1], '#' + navMenu[1], 70),
-      createData('admin', 'https://admin.paynup.com'),
-      createData('pos', 'https://pos.paynup.com'),
+      createData('admin', merchantInfo.adminUrl),
+      createData('pos', merchantInfo.posUrl),
     ];
   } else if (merchantId && merchantInfo && merchantInfo.type === 'dealer') {
     navMenu = [
