@@ -36,7 +36,7 @@ function Header(props) {
   const asPath = router.asPath.substr(1);
   let merchantId = router.query.storeId || (asPath !== 'en' ? asPath : null);
 
-  if (!merchantId && typeof window !== 'undefined' && window.location.hostname !== 'paynup.com') {
+  if (!merchantId && typeof window !== 'undefined' && window.location.hostname !== 'paynup.com' && window.location.hostname !== 'localhost') {
     merchantId = window.location.hostname;
   }
 
@@ -109,8 +109,13 @@ function Header(props) {
     setOpenDrawer(!openDrawer);
   };
 
-  const logo = merchantId ? (merchantInfo && merchantInfo.logo || null) : '/static/images/mobile-logo.png';
-  const logoLarge = merchantId ? (merchantInfo && merchantInfo.logo || null) : '/static/images/mobile-logo-large.png';
+  const [logo, setLogo] = useState(null);
+  const [logoLarge, setLogoLarge] = useState(null);
+  useEffect(() => {
+    setLogo(merchantId ? (merchantInfo && merchantInfo.logo || null) : '/static/images/mobile-logo.png');
+    setLogoLarge(merchantId ? (merchantInfo && merchantInfo.logo || null) : '/static/images/mobile-logo-large.png');
+  });
+
   const twitterLink = merchantId ? (merchantInfo ? merchantInfo.twitterLink : null) : 'https://twitter.com/paynup';
   const facebookLink = merchantId ? (merchantInfo && merchantInfo.facebookLink || null) : 'https://www.facebook.com/paynup/';
   const instagramLink = merchantId ? (merchantInfo && merchantInfo.instagramLink || null) : 'https://www.instagram.com/paynup/';
@@ -150,7 +155,9 @@ function Header(props) {
                   </NextLink>
                 ) : (
                   <AnchorLink href="#home">
+                    {logoLarge &&
                     <img src={fixed ? logo : logoLarge} alt="logo" />
+                    }
                   </AnchorLink>
                 )}
               </div>

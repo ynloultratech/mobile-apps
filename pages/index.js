@@ -117,7 +117,7 @@ function Landing(props) {
   const asPath = router.asPath.substr(1);
   let merchantId = router.query.storeId || (asPath !== 'en' ? asPath : null);
 
-  if (!merchantId && typeof window !== 'undefined' && window.location.hostname !== 'paynup.com') {
+  if (!merchantId && typeof window !== 'undefined' && window.location.hostname !== 'paynup.com' && window.location.hostname !== 'localhost') {
     merchantId = window.location.hostname;
   }
 
