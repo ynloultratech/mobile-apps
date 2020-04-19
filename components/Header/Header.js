@@ -34,7 +34,11 @@ function createData(name, url, offset) {
 function Header(props) {
   const router = useRouter();
   const asPath = router.asPath.substr(1);
-  const merchantId = router.query.storeId || (asPath !== 'en' ? asPath : null);
+  let merchantId = router.query.storeId || (asPath !== 'en' ? asPath : null);
+
+  if (!merchantId && typeof window !== 'undefined' && window.location.hostname !== 'paynup.com') {
+    merchantId = window.location.hostname;
+  }
 
   const [fixed, setFixed] = useState(false);
   let flagFixed = false;
