@@ -65,6 +65,7 @@ function Footer(props) {
       maxWidth="lg"
       component="footer"
       className={clsx(classes.footer, invert && classes.invert)}
+      id="contact"
     >
       <Grid container spacing={4}>
         <Grid item xs={12} md={3}>

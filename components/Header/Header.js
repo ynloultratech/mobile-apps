@@ -78,10 +78,12 @@ function Header(props) {
     ];
   } else if (merchantId && merchantInfo && merchantInfo.type === 'dealer') {
     navMenu = [
-      'showcase'
+      'showcase',
+      'contact',
     ];
     menuList = [
       createData(navMenu[0], '#' + navMenu[0], 70),
+      createData(navMenu[1], '#' + navMenu[1], 0),
     ];
   } else {
     navMenu = [
