@@ -9,16 +9,18 @@ import Typography from '@material-ui/core/Typography';
 import Link from '@material-ui/core/Link';
 import IconButton from '@material-ui/core/IconButton';
 import brand from '~/static/text/brand';
-import logo from '~/static/images/mobile-logo-gray.png';
 import { i18n } from '~/i18n';
 import useStyles from './footer-style';
 import { useRouter } from 'next/router';
 
-function Copyright() {
+function Copyright(props) {
+  const { merchantId, merchantInfo } = props;
+  console.log(merchantInfo);
+  const footerText = merchantId ? (merchantInfo && merchantInfo.name || null) : brand.mobile.footerText;
   return (
     <Typography variant="body2" display="block" align="center" color="textSecondary">
       &copy;&nbsp;
-      {brand.mobile.footerText}
+      {footerText}
     </Typography>
   );
 }
@@ -33,10 +35,7 @@ function Footer(props) {
   }
 
   const classes = useStyles();
-  const theme = useTheme();
   const { invert, merchantInfo } = props;
-  const isDesktop = useMediaQuery(theme.breakpoints.up('md'));
-  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
   const [values, setValues] = useState({
     lang: 'en',
   });
@@ -59,6 +58,8 @@ function Footer(props) {
     }
   }
 
+  const logo = merchantId ? (merchantInfo && merchantInfo.logo || null) : '/static/images/mobile-logo-gray.png';
+  const email = merchantId ? (merchantInfo && merchantInfo.email || null) : 'support@paynup.com';
   const phone = merchantId ? (merchantInfo && merchantInfo.phone || null) : '+1 800 236 6554';
   const twitterLink = merchantId ? (merchantInfo && merchantInfo.twitterLink || null) : 'https://twitter.com/paynup';
   const facebookLink = merchantId ? (merchantInfo && merchantInfo.facebookLink || null) : 'https://www.facebook.com/paynup/';
@@ -76,7 +77,7 @@ function Footer(props) {
           <div className={classes.logo}>
             <img src={logo} alt="logo" />
           </div>
-          <Copyright />
+          <Copyright merchantId={merchantId} merchantInfo={merchantInfo} />
         </Grid>
         <Grid item xs={12} md={6}>
           <div className={classes.footerLinks}>
@@ -119,8 +120,8 @@ function Footer(props) {
             </div>
             <ul>
               <li>
-                <Link href="mailto:support@paynup.com" variant="subtitle1" color="textPrimary">
-                  support@paynup.com
+                <Link href={`mailto:${email}`} variant="subtitle1" color="textPrimary">
+                  {email}
                 </Link>
               </li>
             </ul>

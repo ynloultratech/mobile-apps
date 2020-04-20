@@ -129,7 +129,9 @@ function Landing(props) {
 
   if (!loading && typeof document !== 'undefined') {
     if (merchantId && data && data.merchantInfo) {
+      merchantInfo.name = data.merchantInfo.name;
       merchantInfo.number = data.merchantInfo.number;
+      merchantInfo.email = data.merchantInfo.email;
       if (data.merchantInfo.phone) {
         merchantInfo.phone = '+' + data.merchantInfo.phone.replace(/-/g, ' ');
       }

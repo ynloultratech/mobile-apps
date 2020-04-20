@@ -69,16 +69,16 @@ function Header(props) {
   let menuList = [];
   if (merchantId && merchantInfo && merchantInfo.type === 'agent') {
     navMenu = [
-      'feature',
-      'showcase',
       'admin',
       'pos',
+      'feature',
+      'showcase',
     ];
     menuList = [
-      createData(navMenu[0], '#' + navMenu[0], 90),
-      createData(navMenu[1], '#' + navMenu[1], 70),
       createData('admin', merchantInfo.adminUrl),
       createData('pos', merchantInfo.posUrl),
+      createData(navMenu[2], '#' + navMenu[2], 90),
+      createData(navMenu[3], '#' + navMenu[3], 70),
     ];
   } else if (merchantId && merchantInfo && merchantInfo.type === 'dealer') {
     navMenu = [
@@ -91,16 +91,16 @@ function Header(props) {
     ];
   } else {
     navMenu = [
-      'showcase',
-      'feature',
       'admin',
       'pos',
+      'showcase',
+      'feature',
     ];
     menuList = [
-      createData(navMenu[0], '#' + navMenu[0], 70),
-      createData(navMenu[1], '#' + navMenu[1], 90),
       createData('admin', 'https://admin.paynup.com'),
       createData('pos', 'https://pos.paynup.com'),
+      createData(navMenu[2], '#' + navMenu[2], 70),
+      createData(navMenu[3], '#' + navMenu[3], 90),
     ];
   }
 
