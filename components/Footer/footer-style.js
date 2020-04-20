@@ -252,6 +252,18 @@ const footerStyles = makeStyles(theme => ({
     transform: 'scale(0.5)',
     transformOrigin: 'top left',
   },
+  hideDownSm: {
+    display: 'block',
+    [theme.breakpoints.down('sm')]: {
+      display: 'none',
+    },
+  },
+  showDownSm: {
+    display: 'none',
+    [theme.breakpoints.down('sm')]: {
+      display: 'block',
+    },
+  },
   rightDeco: {
     right: -450,
     width: 1200,

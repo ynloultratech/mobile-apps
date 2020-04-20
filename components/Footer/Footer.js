@@ -40,6 +40,7 @@ function Footer(props) {
   const { invert, merchantInfo } = props;
 
   let logo = '/static/images/mobile-logo-gray.png';
+  const merchantName = merchantId && merchantInfo ? merchantInfo.name : null;
   if (merchantId && merchantInfo) {
     if (merchantInfo.type === 'dealer' && merchantInfo.agent) {
       logo = merchantInfo.agent.logo;
@@ -64,14 +65,15 @@ function Footer(props) {
     >
       {address &&
       <Grid container spacing={1}>
-        <Grid item md={12} className={classes.address}>
+        <Grid item xs={12} className={classes.address}>
+          <div><strong>{merchantName}</strong></div>
           <div>{address.line1}</div>
           <div>{address.city}, {address.state} {address.zipCode}</div>
         </Grid>
       </Grid>
       }
       <Grid container spacing={4}>
-        <Grid item xs={12} md={3}>
+        <Grid item xs={12} md={3} className={classes.hideDownSm}>
           <div className={classes.logo}>
             <img src={logo} alt="logo" />
           </div>
@@ -96,6 +98,12 @@ function Footer(props) {
               </li>
             </ul>
           </div>
+        </Grid>
+        <Grid item xs={12} md={3} className={classes.showDownSm}>
+          <div className={classes.logo}>
+            <img src={logo} alt="logo" />
+          </div>
+          <Copyright merchantId={merchantId} merchantInfo={merchantInfo} />
         </Grid>
         <Grid item xs={12} md={3}>
           <div className={classes.footerLinks}>
