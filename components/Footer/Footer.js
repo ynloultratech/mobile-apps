@@ -23,8 +23,7 @@ function Copyright(props) {
   }
   return (
     <Typography variant="body2" display="block" align="center" color="textSecondary">
-      &copy;&nbsp;
-      2020 by {footerText}
+      Powered by &copy;&nbsp; {footerText}
     </Typography>
   );
 }
