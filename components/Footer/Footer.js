@@ -20,7 +20,7 @@ function Copyright(props) {
   return (
     <Typography variant="body2" display="block" align="center" color="textSecondary">
       &copy;&nbsp;
-      {footerText}
+      2020 by {footerText}
     </Typography>
   );
 }

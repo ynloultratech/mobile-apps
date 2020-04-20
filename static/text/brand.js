@@ -4,7 +4,7 @@ module.exports = {
     desc: 'paynup.com offers discounted prepaid bill payment to over 500 networks across 140 countries',
     ogTitle: 'Paynup.com | Prepaid bill payment',
     prefix: 'paynup',
-    footerText: '2020 by YNLO Ultratech INC.',
+    footerText: 'YNLO Ultratech INC.',
     logoText: 'Paynup Site',
     projectName: 'Paynup',
     url: 'paynup.com',
