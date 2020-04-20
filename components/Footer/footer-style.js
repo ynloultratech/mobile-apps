@@ -99,7 +99,7 @@ const footerStyles = makeStyles(theme => ({
     textAlign: 'center',
     marginBottom: '20px',
     '& img': {
-      width: 194,
+      height: 51.88,
       marginRight: theme.spacing(),
     },
     '& h6': {
