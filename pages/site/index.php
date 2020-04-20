@@ -1,6 +1,6 @@
 <?php
 
-if (0 === strpos($_SERVER['REQUEST_URI'], '/site/')) {
+if (0 === strpos($_SERVER['REQUEST_URI'], 'site/')) {
     $merchantId = substr($_SERVER['REQUEST_URI'], 6);
 
     if (!$merchantId) {
