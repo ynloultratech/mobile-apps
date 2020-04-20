@@ -1,6 +1,6 @@
 <?php
 
-$merchantId = substr($_SERVER['REQUEST_URI'], 5);
+$merchantId = substr($_SERVER['REQUEST_URI'], 7);
 
 if (!$merchantId) {
     header('Location: https://pos.paynup.com');
