@@ -277,6 +277,9 @@ const footerStyles = makeStyles(theme => ({
       marginBottom: theme.spacing(6)
     }
   },
+  address: {
+    textAlign: 'center',
+  },
   btnArea: {
     margin: theme.spacing(5, 0),
     justifyContent: 'center',
@@ -285,7 +288,7 @@ const footerStyles = makeStyles(theme => ({
     [theme.breakpoints.down('xs')]: {
       justifyContent: 'space-around'
     },
-    '& a': {
+    '& div': {
       [theme.breakpoints.up('sm')]: {
         marginRight: theme.spacing(2),
       },

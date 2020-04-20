@@ -29,6 +29,15 @@ const GET_MERCHANT_INFO = gql`
             number
             email
             phone
+            address {
+                line1
+                line2
+                city
+                state
+                zipCode
+                country
+                fullAddress
+            }
             socialLinks{
                 twitter
                 facebook
@@ -139,9 +148,8 @@ function Landing(props) {
       merchantInfo.number = data.merchantInfo.number;
       merchantInfo.email = data.merchantInfo.email;
       merchantInfo.agent = data.merchantInfo.agent;
-      if (data.merchantInfo.phone) {
-        merchantInfo.phone = '+' + data.merchantInfo.phone.replace(/-/g, ' ');
-      }
+      merchantInfo.address = data.merchantInfo.address;
+      merchantInfo.phone = data.merchantInfo.phone;
       if (data.merchantInfo.logo) {
         merchantInfo.logo = data.merchantInfo.logo;
       }

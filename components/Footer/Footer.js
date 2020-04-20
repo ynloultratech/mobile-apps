@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
@@ -7,7 +7,6 @@ import Typography from '@material-ui/core/Typography';
 import Link from '@material-ui/core/Link';
 import IconButton from '@material-ui/core/IconButton';
 import brand from '~/static/text/brand';
-import { i18n } from '~/i18n';
 import useStyles from './footer-style';
 import { useRouter } from 'next/router';
 
@@ -39,27 +38,6 @@ function Footer(props) {
 
   const classes = useStyles();
   const { invert, merchantInfo } = props;
-  const [values, setValues] = useState({
-    lang: 'en',
-  });
-
-  useEffect(() => {
-    setValues({ lang: i18n.language });
-  }, []);
-
-  function handleChange(event) {
-    setValues(oldValues => ({
-      ...oldValues,
-      [event.target.name]: event.target.value,
-    }));
-    if (event.target.value === 'ar') {
-      i18n.changeLanguage('ar');
-      props.toggleDir('rtl');
-    } else {
-      i18n.changeLanguage(event.target.value);
-      props.toggleDir('ltr');
-    }
-  }
 
   let logo = '/static/images/mobile-logo-gray.png';
   if (merchantId && merchantInfo) {
@@ -70,6 +48,7 @@ function Footer(props) {
     }
   }
 
+  const address = merchantId ? (merchantInfo && merchantInfo.address || null) : null;
   const email = merchantId ? (merchantInfo && merchantInfo.email || null) : 'support@paynup.com';
   const phone = merchantId ? (merchantInfo && merchantInfo.phone || null) : '+1 800 236 6554';
   const twitterLink = merchantId ? (merchantInfo && merchantInfo.twitterLink || null) : 'https://twitter.com/paynup';
@@ -83,6 +62,14 @@ function Footer(props) {
       className={clsx(classes.footer, invert && classes.invert)}
       id="contact"
     >
+      {address &&
+      <Grid container spacing={1}>
+        <Grid item md={12} className={classes.address}>
+          <div>{address.line1}</div>
+          <div>{address.city}, {address.state} {address.zipCode}</div>
+        </Grid>
+      </Grid>
+      }
       <Grid container spacing={4}>
         <Grid item xs={12} md={3}>
           <div className={classes.logo}>
