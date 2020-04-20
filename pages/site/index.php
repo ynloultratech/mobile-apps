@@ -10,4 +10,3 @@ if (0 === strpos($_SERVER['REQUEST_URI'], '/site/') {
 }
 
 header('Location: https://'.$_SERVER['HTTP_HOST']);
-exit();
