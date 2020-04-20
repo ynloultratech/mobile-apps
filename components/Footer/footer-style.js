@@ -84,7 +84,7 @@ const footerStyles = makeStyles(theme => ({
     }
   },
   title: {
-    color: theme.palette.primary.dark,
+    color: theme.palette.primary.white,
     fontSize: 46,
     textTransform: 'uppercase',
     lineHeight: 1.1,
@@ -291,6 +291,7 @@ const footerStyles = makeStyles(theme => ({
   },
   address: {
     textAlign: 'center',
+    color: theme.palette.primary.white,
   },
   btnArea: {
     margin: theme.spacing(5, 0),
