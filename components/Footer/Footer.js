@@ -3,8 +3,6 @@ import PropTypes from 'prop-types';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import clsx from 'clsx';
-import { useTheme } from '@material-ui/core/styles';
-import useMediaQuery from '@material-ui/core/useMediaQuery';
 import Typography from '@material-ui/core/Typography';
 import Link from '@material-ui/core/Link';
 import IconButton from '@material-ui/core/IconButton';
@@ -15,8 +13,14 @@ import { useRouter } from 'next/router';
 
 function Copyright(props) {
   const { merchantId, merchantInfo } = props;
-  console.log(merchantInfo);
-  const footerText = merchantId ? (merchantInfo && merchantInfo.name || null) : brand.mobile.footerText;
+  let footerText = brand.mobile.footerText;
+  if (merchantId && merchantInfo) {
+    if (merchantInfo.type === 'dealer' && merchantInfo.agent) {
+      footerText = merchantInfo.agent.name;
+    } else if (merchantInfo.type === 'agent') {
+      footerText = merchantInfo.name;
+    }
+  }
   return (
     <Typography variant="body2" display="block" align="center" color="textSecondary">
       &copy;&nbsp;
@@ -58,7 +62,15 @@ function Footer(props) {
     }
   }
 
-  const logo = merchantId ? (merchantInfo && merchantInfo.logo || null) : '/static/images/mobile-logo-gray.png';
+  let logo = '/static/images/mobile-logo-gray.png';
+  if (merchantId && merchantInfo) {
+    if (merchantInfo.type === 'dealer' && merchantInfo.agent) {
+      logo = merchantInfo.agent.logo;
+    } else if (merchantInfo.type === 'agent') {
+      logo = merchantInfo.logo;
+    }
+  }
+
   const email = merchantId ? (merchantInfo && merchantInfo.email || null) : 'support@paynup.com';
   const phone = merchantId ? (merchantInfo && merchantInfo.phone || null) : '+1 800 236 6554';
   const twitterLink = merchantId ? (merchantInfo && merchantInfo.twitterLink || null) : 'https://twitter.com/paynup';

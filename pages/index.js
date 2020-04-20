@@ -42,7 +42,13 @@ const GET_MERCHANT_INFO = gql`
                 headlineText2
                 headlineText3
             }
-            ... on AgentMerchantInfo{
+            ... on DealerMerchantInfo {
+                agent {
+                    name
+                    logo
+                }
+            }
+            ... on AgentMerchantInfo {
                 adminUrl
                 posUrl
             }
@@ -132,6 +138,7 @@ function Landing(props) {
       merchantInfo.name = data.merchantInfo.name;
       merchantInfo.number = data.merchantInfo.number;
       merchantInfo.email = data.merchantInfo.email;
+      merchantInfo.agent = data.merchantInfo.agent;
       if (data.merchantInfo.phone) {
         merchantInfo.phone = '+' + data.merchantInfo.phone.replace(/-/g, ' ');
       }
