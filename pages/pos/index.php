@@ -6,7 +6,7 @@ if (strpos($_SERVER['HTTP_HOST'], 'myugoonline.net') !== false) {
     exit();
 }
 
-$merchantId = substr($_SERVER['REQUEST_URI'], 1);
+$merchantId = substr($_SERVER['REQUEST_URI'], 5);
 
 if (!$merchantId) {
     header('Location: https://pos.paynup.com');
