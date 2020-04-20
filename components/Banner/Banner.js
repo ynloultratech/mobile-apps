@@ -75,16 +75,12 @@ function Banner(props) {
                 {merchantInfo.headlineText3 || 'Worldwide top-up to over 500 networks across 140 countries.'}
               </Typography>
               <div className={classes.btnArea}>
-                <Link href="/">
-                  <a>
-                    <img src="/static/images/mobile/app-store.png" alt="app store" />
-                  </a>
-                </Link>
-                <Link href="/">
-                  <a>
-                    <img src="/static/images/mobile/play-store.png" alt="play store" />
-                  </a>
-                </Link>
+                <div>
+                  <img src="/static/images/mobile/app-store.png" alt="app store" />
+                </div>
+                <div>
+                  <img src="/static/images/mobile/play-store.png" alt="play store" />
+                </div>
               </div>
             </div>
           </Grid>

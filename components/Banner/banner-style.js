@@ -111,7 +111,7 @@ const bannerStyles = makeStyles(theme => ({
     [theme.breakpoints.down('xs')]: {
       justifyContent: 'space-around'
     },
-    '& a': {
+    '& div': {
       [theme.breakpoints.up('sm')]: {
         marginRight: theme.spacing(2),
       },
