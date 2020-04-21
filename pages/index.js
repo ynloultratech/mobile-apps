@@ -142,9 +142,12 @@ function Landing(props) {
     errorPolicy: 'all',
   });
 
+  let title = null;
+
   if (!loading && typeof document !== 'undefined') {
     if (merchantId && data && data.merchantInfo) {
       merchantInfo.name = data.merchantInfo.name;
+      title = merchantInfo.name + ' - Home Page';
       merchantInfo.number = data.merchantInfo.number;
       merchantInfo.email = data.merchantInfo.email;
       merchantInfo.agent = data.merchantInfo.agent;
@@ -177,6 +180,8 @@ function Landing(props) {
           secondaryColor: merchantInfo ? merchantInfo.secondaryColor : '#ED3237',
         })
       }
+    } else {
+      title = brand.mobile.name;
     }
 
     // Remove preloader
@@ -201,12 +206,26 @@ function Landing(props) {
     </div>
   );
 
+  let domain = null;
+  if (typeof window !== 'undefined') {
+    domain = window.location.hostname;
+  }
+
   return (
     <React.Fragment>
       <Head>
+        <meta property="og:url" content={domain} />
+        <meta property="og:title" content={`${domain} | ${brand.mobile.ogTitle}`} />
+        <meta
+          property="og:description"
+          content={brand.mobile.desc}
+        />
+        <meta property="og:site_name" content={domain} />
+        <meta property="twitter:site" content={domain} />
+        <meta property="twitter:domain" content={domain} />
+        <meta name="twitter:site" content={domain} />
         <title>
-          { brand.mobile.name }
-          &nbsp; - Home Page
+          { title } Home Page
         </title>
       </Head>
       <CssBaseline />
