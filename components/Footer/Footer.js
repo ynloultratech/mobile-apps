@@ -86,13 +86,13 @@ function Footer(props) {
             </Typography>
             <ul>
               <li>
-                <Link href="/policies/privacy.html" variant="subtitle1" color="textSecondary" target="_blank">
+                <Link href="/policies/privacy" variant="subtitle1" color="textSecondary" target="_blank">
                   Privacy Policy
                 </Link>
               </li>
               <li> | </li>
               <li>
-                <Link href="/policies/terms_of_sale.html" variant="subtitle1" color="textSecondary" target="_blank">
+                <Link href="/policies/terms_of_sale" variant="subtitle1" color="textSecondary" target="_blank">
                   Terms & Conditions
                 </Link>
               </li>
