@@ -147,7 +147,7 @@ function Landing(props) {
   if (!loading && typeof document !== 'undefined') {
     if (merchantId && data && data.merchantInfo) {
       merchantInfo.name = data.merchantInfo.name;
-      title = merchantInfo.name + ' - Home Page';
+      title = merchantInfo.name + ' -';
       merchantInfo.number = data.merchantInfo.number;
       merchantInfo.email = data.merchantInfo.email;
       merchantInfo.agent = data.merchantInfo.agent;
