@@ -185,10 +185,12 @@ function Landing(props) {
     }
 
     // Remove preloader
-    const preloader = document.getElementById('preloader');
-    if (preloader !== null || undefined) {
-      preloader.remove();
-    }
+    setTimeout(() => {
+      const preloader = document.getElementById('preloader');
+      if (preloader !== null || undefined) {
+        preloader.remove();
+      }
+    }, 1000);
   }
 
   const [loadingTheme, setLoadingTheme] = useState(true)

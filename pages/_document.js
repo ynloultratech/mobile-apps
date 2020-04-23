@@ -12,7 +12,7 @@ class MyDocument extends Document {
           <div
             id="preloader"
             style={{
-              position: 'absolute',
+              position: 'fixed',
               zIndex: 10000,
               background: '#fafafa',
               width: '100%',
