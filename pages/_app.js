@@ -69,7 +69,7 @@ class MyApp extends App {
     localStorage.setItem('luxiTheme', theme.palette.type === 'light' ? 'dark' : 'light');
     this.setState({
       theme: {
-        ...appTheme('joker', newPaletteType),
+        ...appTheme('paynup', newPaletteType),
         direction: theme.direction,
       }
     });
