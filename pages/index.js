@@ -171,15 +171,6 @@ function Landing(props) {
       } else if (data.merchantInfo.__typename === 'AgentMerchantInfo') {
         merchantInfo.type = 'agent';
       }
-
-      if (typeof window !== 'undefined' && merchantInfo.type === 'dealer') {
-        window.PaynUpRefillBar({
-          element: document.getElementById('refill-bar'),
-          store: merchantInfo ? merchantInfo.number : 21232,
-          primaryColor: merchantInfo ? merchantInfo.primaryColor : '#ED3237',
-          secondaryColor: merchantInfo ? merchantInfo.secondaryColor : '#ED3237',
-        })
-      }
     } else {
       title = brand.mobile.name;
     }
@@ -200,6 +191,17 @@ function Landing(props) {
       onLoadTheme(merchantInfo.primaryColor, merchantInfo.secondaryColor);
     }
   })
+
+  useEffect(() => {
+    if (typeof window !== 'undefined' && merchantInfo.type === 'dealer' &&  window.PaynUpRefillBar !== 'undefined') {
+      window.PaynUpRefillBar({
+        element: document.getElementById('refill-bar'),
+        store: merchantInfo ? merchantInfo.number : 21232,
+        primaryColor: merchantInfo ? merchantInfo.primaryColor : '#ED3237',
+        secondaryColor: merchantInfo ? merchantInfo.secondaryColor : '#ED3237',
+      })
+    }
+  });
 
   const promptBody = (
     <div className={classes.promptBody}>
