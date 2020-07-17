@@ -1,31 +1,31 @@
-import React, { useEffect, useState } from 'react';
-import PropTypes from 'prop-types';
-import Head from 'next/head';
-import Hidden from '@material-ui/core/Hidden';
-import { makeStyles } from '@material-ui/core/styles';
+import {useQuery} from '@apollo/react-hooks';
 import CssBaseline from '@material-ui/core/CssBaseline';
+import Hidden from '@material-ui/core/Hidden';
+import {makeStyles} from '@material-ui/core/styles';
+import {gql} from 'apollo-boost';
 import dynamic from 'next/dynamic';
-import Header from '../components/Header';
+import Head from 'next/head';
+import {useRouter} from 'next/router';
+import PropTypes from 'prop-types';
+import React, {useEffect, useState} from 'react';
 import Banner from '../components/Banner';
+import CompanyLogo from '../components/CompanyLogo';
 import Counter from '../components/Counter';
 import Feature from '../components/Feature';
+import FooterWithDeco from '../components/Footer/FooterWithDeco';
+import Header from '../components/Header';
+import Notification from '../components/Notification';
+import PageNav from '../components/PageNav';
 import Showcase from '../components/Showcase';
 import Testimonials from '../components/Testimonials';
-import CompanyLogo from '../components/CompanyLogo';
-import FooterWithDeco from '../components/Footer/FooterWithDeco';
-import PageNav from '../components/PageNav';
-import Notification from '../components/Notification';
 import brand from '../static/text/brand';
-import { gql } from 'apollo-boost';
-import { useQuery } from '@apollo/react-hooks';
-import { useRouter } from 'next/router'
 
 const GET_MERCHANT_INFO = gql`
-    query merchantInfo($number: String!) {
-        merchantInfo(identifier: $number) {
-            __typename
-            name
-            logo
+  query merchantInfo($number: String!) {
+    merchantInfo(identifier: $number) {
+      __typename
+      name
+      logo
             number
             email
             phone
@@ -193,13 +193,13 @@ function Landing(props) {
   })
 
   useEffect(() => {
-    if (typeof window !== 'undefined' && merchantInfo.type === 'dealer' &&  window.PaynUpRefillBar !== 'undefined') {
+    if (typeof window !== 'undefined' && merchantInfo.type === 'dealer' && window.PaynUpRefillBar !== undefined) {
       window.PaynUpRefillBar({
         element: document.getElementById('refill-bar'),
         store: merchantInfo ? merchantInfo.number : 21232,
         primaryColor: merchantInfo ? merchantInfo.primaryColor : '#ED3237',
         secondaryColor: merchantInfo ? merchantInfo.secondaryColor : '#ED3237',
-      })
+      });
     }
   });
 
