@@ -90,12 +90,12 @@ function Footer(props) {
                   Privacy Policy
                 </Link>
               </li>
-              <li> | </li>
-              <li>
-                {/*<Link href="/policies/terms_of_sale" variant="subtitle1" color="textSecondary" target="_blank">*/}
-                {/*  Terms & Conditions*/}
-                {/*</Link>*/}
-              </li>
+              {/*<li> | </li>*/}
+              {/*<li>*/}
+              {/*  /!*<Link href="/policies/terms_of_sale" variant="subtitle1" color="textSecondary" target="_blank">*!/*/}
+              {/*  /!*  Terms & Conditions*!/*/}
+              {/*  /!*</Link>*!/*/}
+              {/*</li>*/}
             </ul>
           </div>
         </Grid>
