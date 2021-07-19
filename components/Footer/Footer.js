@@ -51,7 +51,7 @@ function Footer(props) {
 
   const address = merchantId ? (merchantInfo && merchantInfo.address || null) : null;
   const email = merchantId ? (merchantInfo && merchantInfo.email || null) : 'support@paynup.com';
-  const phone = merchantId ? (merchantInfo && merchantInfo.phone || null) : '+1 800 236 6554';
+  const phone = merchantId ? (merchantInfo && merchantInfo.phone || null) : '+1-800-445-5456';
   const twitterLink = merchantId ? (merchantInfo && merchantInfo.twitterLink || null) : 'https://twitter.com/paynup';
   const facebookLink = merchantId ? (merchantInfo && merchantInfo.facebookLink || null) : 'https://www.facebook.com/paynup/';
   const instagramLink = merchantId ? (merchantInfo && merchantInfo.instagramLink || null) : 'https://www.instagram.com/paynup/';
