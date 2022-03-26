@@ -71,7 +71,7 @@
 	},
 	"devDependencies": {
 		"acorn": ">=6.4.1",
-		"minimist": ">=1.2.2",
+		"minimist": ">=1.2.6",
 		"serialize-javascript": ">=2.1.1",
 		"eslint": "5.16.0",
 		"eslint-config-airbnb": "17.1.0",
