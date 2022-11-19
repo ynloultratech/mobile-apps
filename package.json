@@ -42,7 +42,7 @@
 		"isomorphic-unfetch": "^3.0.0",
 		"jss": "^10.0.0-alpha.21",
 		"jss-rtl": "^0.2.3",
-		"next": "9.3.2",
+		"next": "13.0.4",
 		"next-apollo": "^3.1.10",
 		"next-i18next": "^1.2.0",
 		"next-images": "^1.1.2",
